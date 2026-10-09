@@ -1,0 +1,2691 @@
+[
+  {
+    "id": "stand-naturally",
+    "name": "Stand Naturally",
+    "category": "Standing",
+    "tags": [
+      "posture",
+      "baseline",
+      "standing",
+      "neutral"
+    ],
+    "difficulty": "beginner",
+    "framing": "full-body",
+    "description": "Upright, relaxed posture with arms hanging comfortably at sides, shoulders level and feet hip-width apart.",
+    "instructions": [
+      "Keep shoulders level and relaxed",
+      "Arms rest naturally at your sides",
+      "Distribute weight evenly on both feet"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "features": [
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.0,
+        "tolerance": 5.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "hip_level",
+        "kind": "tilt",
+        "landmarks": [
+          23,
+          24
+        ],
+        "target": 0.0,
+        "tolerance": 5.0,
+        "weight": 1.5
+      },
+      {
+        "id": "left_arm_extension",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 168.1,
+        "tolerance": 15.0,
+        "weight": 1.0
+      },
+      {
+        "id": "right_arm_extension",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 168.1,
+        "tolerance": 15.0,
+        "weight": 1.0
+      },
+      {
+        "id": "left_knee_straight",
+        "kind": "angle",
+        "landmarks": [
+          23,
+          25,
+          27
+        ],
+        "target": 180.0,
+        "tolerance": 10.0,
+        "weight": 1.0
+      },
+      {
+        "id": "right_knee_straight",
+        "kind": "angle",
+        "landmarks": [
+          24,
+          26,
+          28
+        ],
+        "target": 180.0,
+        "tolerance": 10.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.64,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.35,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.65,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"102.9\" x2=\"122.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"122.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Stand Naturally</text>\n</svg>"
+  },
+  {
+    "id": "hands-on-hips",
+    "name": "Hands on Hips",
+    "category": "Confident",
+    "tags": [
+      "confident",
+      "standing",
+      "waist",
+      "classic"
+    ],
+    "difficulty": "beginner",
+    "framing": "either",
+    "description": "Empowered, confident stance with both hands placed on hips/waist and elbows flared outwards.",
+    "instructions": [
+      "Place both hands firmly on your hips",
+      "Flare elbows outward symmetrically",
+      "Keep chest upright and shoulders level"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24
+    ],
+    "features": [
+      {
+        "id": "left_elbow_bend",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 94.4,
+        "tolerance": 14.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_elbow_bend",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 94.4,
+        "tolerance": 14.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "left_hand_to_hip",
+        "kind": "distance",
+        "landmarks": [
+          15,
+          23
+        ],
+        "target": 0.13,
+        "tolerance": 0.12,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_hand_to_hip",
+        "kind": "distance",
+        "landmarks": [
+          16,
+          24
+        ],
+        "target": 0.13,
+        "tolerance": 0.12,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.0,
+        "tolerance": 6.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.28,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.72,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.4,
+        "y": 0.5,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.5,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"66.6\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"66.6\" y1=\"102.9\" x2=\"84.8\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"133.4\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"133.4\" y1=\"102.9\" x2=\"115.2\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"66.6\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"133.4\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"124.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"124.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Hands on Hips</text>\n</svg>"
+  },
+  {
+    "id": "arms-crossed",
+    "name": "Arms Crossed",
+    "category": "Studio Portrait",
+    "tags": [
+      "business",
+      "portrait",
+      "upper-body",
+      "casual"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Classic executive fold across chest with forearms balanced and shoulders broad.",
+    "instructions": [
+      "Cross both arms across your lower chest",
+      "Rest hands against opposite upper arms",
+      "Keep shoulders relaxed and squared"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "features": [
+      {
+        "id": "left_elbow_fold",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 56.3,
+        "tolerance": 15.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_elbow_fold",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 61.3,
+        "tolerance": 15.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "left_wrist_chest",
+        "kind": "distance",
+        "landmarks": [
+          15,
+          12
+        ],
+        "target": 0.46,
+        "tolerance": 0.15,
+        "weight": 1.5
+      },
+      {
+        "id": "right_wrist_chest",
+        "kind": "distance",
+        "landmarks": [
+          16,
+          11
+        ],
+        "target": 0.53,
+        "tolerance": 0.15,
+        "weight": 1.5
+      },
+      {
+        "id": "shoulder_tilt",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.0,
+        "tolerance": 6.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.32,
+        "y": 0.36,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.68,
+        "y": 0.36,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.55,
+        "y": 0.36,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.45,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"72.6\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"72.6\" y1=\"99.4\" x2=\"107.6\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"127.4\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"99.4\" x2=\"92.4\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"72.6\" cy=\"99.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"99.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"107.6\" cy=\"99.4\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"92.4\" cy=\"102.9\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Arms Crossed</text>\n</svg>"
+  },
+  {
+    "id": "arms-raised-v",
+    "name": "Arms Raised (V)",
+    "category": "Celebration",
+    "tags": [
+      "celebration",
+      "victory",
+      "energy",
+      "fitness"
+    ],
+    "difficulty": "intermediate",
+    "framing": "either",
+    "description": "Dynamic overhead victory pose with both arms extended upwards in an expansive V formation.",
+    "instructions": [
+      "Raise both arms overhead into a high V",
+      "Keep elbows straight and fingers open",
+      "Stand tall with torso aligned"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24
+    ],
+    "features": [
+      {
+        "id": "left_arm_elevation",
+        "kind": "angle",
+        "landmarks": [
+          23,
+          11,
+          13
+        ],
+        "target": 135.9,
+        "tolerance": 15.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_arm_elevation",
+        "kind": "angle",
+        "landmarks": [
+          24,
+          12,
+          14
+        ],
+        "target": 135.9,
+        "tolerance": 15.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "left_elbow_straight",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 168.5,
+        "tolerance": 15.0,
+        "weight": 1.5
+      },
+      {
+        "id": "right_elbow_straight",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 168.5,
+        "tolerance": 15.0,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.28,
+        "y": 0.14,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.72,
+        "y": 0.14,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.2,
+        "y": 0.04,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.8,
+        "y": 0.04,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"66.6\" y2=\"60.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"66.6\" y1=\"60.6\" x2=\"54.4\" y2=\"43.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"133.4\" y2=\"60.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"133.4\" y1=\"60.6\" x2=\"145.6\" y2=\"43.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"66.6\" cy=\"60.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"133.4\" cy=\"60.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"54.4\" cy=\"43.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"145.6\" cy=\"43.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Arms Raised (V)</text>\n</svg>"
+  },
+  {
+    "id": "one-hand-wave",
+    "name": "One-Hand Wave",
+    "category": "Greeting",
+    "tags": [
+      "greeting",
+      "friendly",
+      "wave",
+      "casual"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Warm, engaging greeting with right hand raised beside the head in an open wave.",
+    "instructions": [
+      "Raise right hand beside head to wave",
+      "Bend right elbow at roughly 90 degrees",
+      "Rest left arm comfortably at your side"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "features": [
+      {
+        "id": "right_elbow_angle",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 113.5,
+        "tolerance": 16.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_hand_height",
+        "kind": "position",
+        "landmarks": [
+          16
+        ],
+        "target": 0.1,
+        "tolerance": 0.14,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "left_arm_down",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 168.1,
+        "tolerance": 16.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.68,
+        "y": 0.22,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.35,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.7,
+        "y": 0.1,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"127.4\" y2=\"74.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"74.7\" x2=\"130.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"74.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"130.4\" cy=\"53.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">One-Hand Wave</text>\n</svg>"
+  },
+  {
+    "id": "shoulders-angled",
+    "name": "Shoulders Angled Portrait",
+    "category": "Portrait",
+    "tags": [
+      "portrait",
+      "editorial",
+      "angle",
+      "headshot"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Slimming portrait posture with torso turned at a 30-degree angle while head faces camera.",
+    "instructions": [
+      "Turn torso 30 degrees to your side",
+      "Turn head forward facing the camera directly",
+      "Maintain upright spine posture"
+    ],
+    "requiredLandmarks": [
+      0,
+      11,
+      12,
+      23,
+      24
+    ],
+    "features": [
+      {
+        "id": "shoulder_yaw_proxy",
+        "kind": "distance",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.52,
+        "tolerance": 0.08,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "head_level",
+        "kind": "tilt",
+        "landmarks": [
+          0,
+          11
+        ],
+        "target": 63.4,
+        "tolerance": 8.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.58,
+        "y": 0.26,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.42,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.42,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.54,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"112.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"87.8\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"102.9\" x2=\"87.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"115.2\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"106.4\" x2=\"115.2\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"90.9\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"131.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Shoulders Angled Portrait</text>\n</svg>"
+  },
+  {
+    "id": "hand-near-chin",
+    "name": "Hand Near Chin",
+    "category": "Thoughtful",
+    "tags": [
+      "thoughtful",
+      "editorial",
+      "chin",
+      "thinker"
+    ],
+    "difficulty": "intermediate",
+    "framing": "upper-body",
+    "description": "Contemplative editorial pose with one hand lightly touching or gesturing near jawline.",
+    "instructions": [
+      "Bring right hand lightly toward your chin/jaw",
+      "Keep elbow tucked close to your torso",
+      "Relax your neck and shoulders"
+    ],
+    "requiredLandmarks": [
+      0,
+      11,
+      12,
+      14,
+      16
+    ],
+    "features": [
+      {
+        "id": "hand_to_chin_distance",
+        "kind": "distance",
+        "landmarks": [
+          16,
+          0
+        ],
+        "target": 0.2,
+        "tolerance": 0.09,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_elbow_flex",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 12.5,
+        "tolerance": 15.0,
+        "weight": 1.5
+      },
+      {
+        "id": "left_arm_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 168.1,
+        "tolerance": 16.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.62,
+        "y": 0.32,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.35,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.54,
+        "y": 0.16,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"118.2\" y2=\"92.3\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"118.2\" y1=\"92.3\" x2=\"106.1\" y2=\"64.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"118.2\" cy=\"92.3\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"106.1\" cy=\"64.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Hand Near Chin</text>\n</svg>"
+  },
+  {
+    "id": "weight-shift",
+    "name": "Weight Shift",
+    "category": "Fashion",
+    "tags": [
+      "fashion",
+      "full-body",
+      "casual",
+      "dynamic"
+    ],
+    "difficulty": "intermediate",
+    "framing": "full-body",
+    "description": "Casual fashion stance with body weight shifted onto one support leg and slight hip angle.",
+    "instructions": [
+      "Shift body weight firmly onto right leg",
+      "Allow left knee to soften slightly",
+      "Drop left hip slightly for natural stance"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "features": [
+      {
+        "id": "hip_tilt",
+        "kind": "tilt",
+        "landmarks": [
+          23,
+          24
+        ],
+        "target": 12.1,
+        "tolerance": 4.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "right_support_leg",
+        "kind": "angle",
+        "landmarks": [
+          24,
+          26,
+          28
+        ],
+        "target": 177.3,
+        "tolerance": 8.0,
+        "weight": 1.5
+      },
+      {
+        "id": "left_relaxed_knee",
+        "kind": "angle",
+        "landmarks": [
+          23,
+          25,
+          27
+        ],
+        "target": 176.9,
+        "tolerance": 12.0,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.64,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.35,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.65,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.53,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.5,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.41,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.58,
+        "y": 0.71,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.4,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.58,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"102.9\" x2=\"122.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"129.3\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"129.3\" x2=\"110.6\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"129.3\" x2=\"86.3\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"86.3\" y1=\"162.7\" x2=\"84.8\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"124.0\" x2=\"112.2\" y2=\"161.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"161.0\" x2=\"112.2\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"122.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"129.3\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"124.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"161.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Weight Shift</text>\n</svg>"
+  },
+  {
+    "id": "side-facing",
+    "name": "Side-Facing Profile",
+    "category": "Fitness / Form",
+    "tags": [
+      "side-profile",
+      "form",
+      "fitness",
+      "alignment"
+    ],
+    "difficulty": "intermediate",
+    "framing": "either",
+    "experimental": true,
+    "description": "Sagittal alignment view showing spinal curve and lateral posture. Experimental due to 2D self-occlusion.",
+    "instructions": [
+      "Turn 90 degrees to face sideways",
+      "Stand tall with spine erect",
+      "Keep hands resting along outer thigh"
+    ],
+    "requiredLandmarks": [
+      12,
+      14,
+      16,
+      24,
+      26,
+      28
+    ],
+    "features": [
+      {
+        "id": "lateral_spine_align",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          24,
+          26
+        ],
+        "target": 177.1,
+        "tolerance": 10.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "knee_alignment",
+        "kind": "angle",
+        "landmarks": [
+          24,
+          26,
+          28
+        ],
+        "target": 180.0,
+        "tolerance": 10.0,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.58,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.48,
+        "y": 0.24,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.5,
+        "y": 0.24,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.48,
+        "y": 0.38,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.52,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.48,
+        "y": 0.52,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.53,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.48,
+        "y": 0.52,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.5,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.48,
+        "y": 0.72,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.51,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.48,
+        "y": 0.92,
+        "visibility": 0.3
+      },
+      {
+        "x": 0.52,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": false,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"112.2\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"78.2\" x2=\"103.0\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"102.9\" x2=\"104.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"78.2\" x2=\"100.0\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"127.5\" x2=\"101.5\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"101.5\" y1=\"162.7\" x2=\"103.0\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"112.2\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"100.0\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"103.0\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"104.6\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"100.0\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"101.5\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"103.0\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Side-Facing Profile</text>\n</svg>"
+  },
+  {
+    "id": "seated-relaxed",
+    "name": "Seated Relaxed",
+    "category": "Seated",
+    "tags": [
+      "seated",
+      "desk",
+      "relaxed",
+      "interview"
+    ],
+    "difficulty": "intermediate",
+    "framing": "upper-body",
+    "experimental": true,
+    "description": "Ergonomic seated position with back supported and hands resting forward. Experimental for desk cams.",
+    "instructions": [
+      "Sit upright with back straight",
+      "Rest hands gently on thighs or desk",
+      "Keep shoulders level and relaxed"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24
+    ],
+    "features": [
+      {
+        "id": "torso_upright",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          23
+        ],
+        "target": 85.0,
+        "tolerance": 8.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.0,
+        "tolerance": 5.0,
+        "weight": 1.5
+      },
+      {
+        "id": "hands_forward",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 147.5,
+        "tolerance": 18.0,
+        "weight": 1.0
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.64,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.4,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.58,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.58,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.41,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.59,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.41,
+        "y": 0.88,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.59,
+        "y": 0.88,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"106.4\" x2=\"84.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"106.4\" x2=\"115.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"138.1\" x2=\"110.6\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"138.1\" x2=\"86.3\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"86.3\" y1=\"159.2\" x2=\"86.3\" y2=\"190.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"138.1\" x2=\"113.7\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"113.7\" y1=\"159.2\" x2=\"113.7\" y2=\"190.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"138.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"138.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"113.7\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"190.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"113.7\" cy=\"190.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Seated Relaxed</text>\n</svg>"
+  },
+  {
+    "id": "warrior-two-pose",
+    "name": "Warrior Pose",
+    "category": "Yoga / Athletic",
+    "tags": [
+      "yoga",
+      "athletic",
+      "warrior",
+      "full-body"
+    ],
+    "difficulty": "advanced",
+    "framing": "full-body",
+    "description": "Strong athletic warrior stance with arms stretched horizontally, lead knee bent, and wide base.",
+    "instructions": [
+      "Stretch both arms parallel to the floor",
+      "Bend front knee toward 90 degrees",
+      "Keep back leg straight and torso upright"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28
+    ],
+    "features": [
+      {
+        "id": "arms_horizontal",
+        "kind": "tilt",
+        "landmarks": [
+          15,
+          16
+        ],
+        "target": 0.0,
+        "tolerance": 8.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "front_knee_bend",
+        "kind": "angle",
+        "landmarks": [
+          23,
+          25,
+          27
+        ],
+        "target": 148.0,
+        "tolerance": 15.0,
+        "weight": 2.0,
+        "critical": true
+      },
+      {
+        "id": "back_leg_straight",
+        "kind": "angle",
+        "landmarks": [
+          24,
+          26,
+          28
+        ],
+        "target": 169.7,
+        "tolerance": 10.0,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.42,
+        "y": 0.26,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.58,
+        "y": 0.26,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.26,
+        "y": 0.26,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.74,
+        "y": 0.26,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.12,
+        "y": 0.26,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.88,
+        "y": 0.26,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.54,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.56,
+        "y": 0.54,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.68,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.34,
+        "y": 0.9,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.78,
+        "y": 0.9,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"112.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"63.5\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"63.5\" y1=\"81.8\" x2=\"42.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"136.5\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"136.5\" y1=\"81.8\" x2=\"157.8\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"90.9\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"109.1\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"131.0\" x2=\"109.1\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"131.0\" x2=\"75.7\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"75.7\" y1=\"159.2\" x2=\"75.7\" y2=\"194.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"109.1\" y1=\"131.0\" x2=\"127.4\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"159.2\" x2=\"142.6\" y2=\"194.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"63.5\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"136.5\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"42.2\" cy=\"81.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"157.8\" cy=\"81.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"90.9\" cy=\"131.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"109.1\" cy=\"131.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"75.7\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"75.7\" cy=\"194.4\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"142.6\" cy=\"194.4\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Warrior Pose</text>\n</svg>"
+  }
+]
