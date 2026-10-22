@@ -2,12 +2,16 @@ import React from 'react';
 import { ReferencePose } from '../core/library/types';
 import { CorrectionInstruction } from '../core/guidance/correctionGenerator';
 import { PoseRecommendation } from '../core/library/recommendationEngine';
-import { CheckCircle2, AlertCircle, Sparkles, ChevronRight, HelpCircle, Layers } from 'lucide-react';
+import { CompositionResult } from '../core/camera/compositionAnalyzer';
+import { CheckCircle2, AlertCircle, Sparkles, ChevronRight, HelpCircle, Layers, Camera, Grid, Focus } from 'lucide-react';
 
 interface GuidancePanelProps {
   selectedPose: ReferencePose | null;
   overallScore: number;
   coveragePassed: boolean;
+  cameraComposition?: CompositionResult | null;
+  showRuleOfThirds?: boolean;
+  onToggleRuleOfThirds?: () => void;
   primaryInstruction: CorrectionInstruction | null;
   secondaryInstructions: CorrectionInstruction[];
   framingInstruction: string | null;
@@ -24,6 +28,9 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
   selectedPose,
   overallScore,
   coveragePassed,
+  cameraComposition,
+  showRuleOfThirds = true,
+  onToggleRuleOfThirds,
   primaryInstruction,
   secondaryInstructions,
   framingInstruction,
@@ -50,17 +57,33 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
         </div>
 
         {selectedPose ? (
-          <div className="p-3 bg-[#0F251E]/60 border border-[#F4F6F4]/10 rounded-xl flex gap-3 items-center">
-            <div
-              className="w-16 h-20 rounded-lg overflow-hidden shrink-0 border border-[#F4F6F4]/10 bg-[#16382D]"
-              dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
-            />
-            <div className="overflow-hidden">
-              <h3 className="text-sm font-semibold text-[#F4F6F4] truncate">{selectedPose.name}</h3>
-              <p className="text-xs text-[#94A39E] capitalize">{selectedPose.category} • {selectedPose.difficulty}</p>
-              <p className="text-[11px] text-[#94A39E]/80 line-clamp-2 mt-1">{selectedPose.description}</p>
+          <>
+            <div className="p-3 bg-[#0F251E]/60 border border-[#F4F6F4]/10 rounded-xl flex gap-3 items-center">
+              <div
+                className="w-16 h-20 rounded-lg overflow-hidden shrink-0 border border-[#F4F6F4]/10 bg-[#16382D]"
+                dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
+              />
+              <div className="overflow-hidden">
+                <h3 className="text-sm font-semibold text-[#F4F6F4] truncate">{selectedPose.name}</h3>
+                <p className="text-xs text-[#94A39E] capitalize">{selectedPose.category} • {selectedPose.difficulty}</p>
+                <p className="text-[11px] text-[#94A39E]/80 line-clamp-2 mt-1">{selectedPose.description}</p>
+              </div>
             </div>
-          </div>
+
+            {selectedPose.instructions && selectedPose.instructions.length > 0 && (
+              <div className="p-2.5 bg-[#0F251E]/40 border border-[#F4F6F4]/5 rounded-xl space-y-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A39E] block">Key Posture Points</span>
+                <ul className="space-y-1">
+                  {selectedPose.instructions.map((inst, i) => (
+                    <li key={i} className="text-[11px] text-[#94A39E] flex items-start gap-1.5 leading-snug">
+                      <span className="w-1 h-1 rounded-full bg-[#C5A059] mt-1.5 shrink-0" />
+                      <span>{inst}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
         ) : (
           <div className="p-6 bg-[#0F251E]/60 border border-dashed border-[#F4F6F4]/15 rounded-xl text-center">
             <Layers className="w-8 h-8 text-[#94A39E] mx-auto mb-2" />
@@ -102,7 +125,76 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
           </div>
         )}
 
-        {/* Pose Match Score Bar */}
+        {/* Engine 1: Camera Guidance Meter (Always Active) */}
+        <div className="p-3 bg-[#0F251E]/60 border border-[#F4F6F4]/10 rounded-xl space-y-2">
+          <div className="flex items-center justify-between text-xs">
+            <div className="flex items-center gap-1.5 text-[#94A39E]">
+              <Camera className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span className="font-semibold text-[#F4F6F4]">Camera Framing</span>
+              {cameraComposition && cameraComposition.metrics.shotScale !== 'out-of-frame' && (
+                <span className="text-[10px] uppercase font-bold px-1.5 py-0.2 rounded bg-[#16382D] text-[#C5A059] border border-[#C5A059]/30">
+                  {cameraComposition.metrics.shotScale}
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              {onToggleRuleOfThirds && (
+                <button
+                  onClick={onToggleRuleOfThirds}
+                  title="Toggle Rule-of-Thirds Grid Overlay"
+                  className={`p-1 rounded transition text-[10px] flex items-center gap-1 ${
+                    showRuleOfThirds
+                      ? 'bg-[#C5A059]/20 text-[#C5A059] border border-[#C5A059]/40'
+                      : 'text-[#94A39E] hover:text-[#F4F6F4]'
+                  }`}
+                >
+                  <Grid className="w-3 h-3" />
+                  <span className="hidden sm:inline">Grid</span>
+                </button>
+              )}
+              <span className="font-bold tabular-nums text-sm text-[#F4F6F4]">
+                {cameraComposition ? `${cameraComposition.framingScore}%` : '---'}
+              </span>
+            </div>
+          </div>
+
+          {/* Framing Progress Bar */}
+          <div className="w-full h-2 rounded-full bg-[#16382D] overflow-hidden border border-[#F4F6F4]/10">
+            <div
+              className={`h-full transition-all duration-200 rounded-full ${
+                !cameraComposition || cameraComposition.framingScore < 60
+                  ? 'bg-[#FF9F43]'
+                  : cameraComposition.framingScore >= 80
+                  ? 'bg-[#4ADE80]'
+                  : 'bg-[#C5A059]'
+              }`}
+              style={{ width: cameraComposition ? `${cameraComposition.framingScore}%` : '0%' }}
+            />
+          </div>
+
+          {/* Camera Directorial Cue */}
+          <div className="flex items-center justify-between text-[11px] pt-0.5">
+            <span className="text-[#94A39E] flex items-center gap-1 truncate pr-2">
+              <Focus className="w-3 h-3 text-[#C5A059] shrink-0" />
+              <span className="truncate">{cameraComposition ? cameraComposition.guidanceCue : 'Position yourself in frame'}</span>
+            </span>
+            {cameraComposition && (
+              <span
+                className={`text-[10px] font-bold uppercase tracking-wider shrink-0 ${
+                  cameraComposition.status === 'optimal'
+                    ? 'text-[#4ADE80]'
+                    : cameraComposition.status === 'acceptable'
+                    ? 'text-[#C5A059]'
+                    : 'text-[#FF9F43]'
+                }`}
+              >
+                {cameraComposition.status}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Engine 2: Pose Match Score Bar */}
         {selectedPose && (
           <div className="p-3 bg-[#0F251E]/60 border border-[#F4F6F4]/10 rounded-xl space-y-2">
             <div className="flex items-center justify-between text-xs">
@@ -192,13 +284,13 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
 
             {/* Primary Instruction */}
             {primaryInstruction && !framingInstruction && (
-              <div className="p-3 bg-[#FF9F43]/15 border border-[#FF9F43]/30 rounded-xl flex items-start gap-2.5 text-xs text-[#F4F6F4]">
-                <AlertCircle className="w-4 h-4 text-[#FF9F43] shrink-0 mt-0.5" />
+              <div className="p-3.5 bg-[#FF9F43]/20 border-2 border-[#FF9F43]/40 rounded-xl flex items-start gap-3 text-xs text-[#F4F6F4] shadow-md">
+                <AlertCircle className="w-5 h-5 text-[#FF9F43] shrink-0 mt-0.5 animate-pulse" />
                 <div>
-                  <span className="font-semibold text-[#FF9F43] uppercase text-[10px] tracking-wider block">
-                    Main Correction
+                  <span className="font-bold text-[#FF9F43] uppercase text-[11px] tracking-wider block">
+                    Directorial Cue
                   </span>
-                  <p className="font-medium text-sm mt-0.5">{primaryInstruction.text}</p>
+                  <p className="font-bold text-base mt-0.5 text-[#F4F6F4]">{primaryInstruction.text}</p>
                 </div>
               </div>
             )}

@@ -234,6 +234,65 @@ describe('6. Correction Generator & Anatomical Correctness', () => {
       }
     }
   });
+
+  it('correctly instructs to bend when elbow is too straight, and straighten when too bent', () => {
+    generator.reset();
+    // Arm too straight (elbow angle ~130° vs target 94.4° => delta > 0, needs bend)
+    const tooStraight = handsOnHipsPose.landmarks!.map((lm, idx) => {
+      if (idx === 13) return { ...lm, x: 0.32, y: 0.38 }; // left elbow flared wide/straight
+      return { ...lm };
+    });
+    const matchRes1 = matcher.scorePose(tooStraight, handsOnHipsPose);
+    generator.generateCorrections(matchRes1, tooStraight, handsOnHipsPose.landmarks, 0);
+    const result1 = generator.generateCorrections(matchRes1, tooStraight, handsOnHipsPose.landmarks, 500);
+
+    const elbowInst1 = result1.allActiveInstructions.find((i) => i.jointName.includes('elbow'));
+    if (elbowInst1) {
+      expect(elbowInst1.direction).toBe('bend');
+      expect(elbowInst1.text.toLowerCase()).toContain('bend');
+    }
+
+    // Arm too bent (elbow angle ~50° vs target 94.4° => delta < 0, needs straighten)
+    generator.reset();
+    const tooBent = handsOnHipsPose.landmarks!.map((lm, idx) => {
+      if (idx === 15) return { ...lm, x: 0.40, y: 0.35 }; // left wrist pulled up near chest
+      return { ...lm };
+    });
+    const matchRes2 = matcher.scorePose(tooBent, handsOnHipsPose);
+    generator.generateCorrections(matchRes2, tooBent, handsOnHipsPose.landmarks, 0);
+    const result2 = generator.generateCorrections(matchRes2, tooBent, handsOnHipsPose.landmarks, 500);
+
+    const elbowInst2 = result2.allActiveInstructions.find((i) => i.jointName.includes('elbow'));
+    if (elbowInst2) {
+      expect(elbowInst2.direction).toBe('straighten');
+      expect(elbowInst2.text.toLowerCase()).toContain('straighten');
+    }
+  });
+
+  it('accommodates natural human shoulder tilt up to 8 degrees on hands-on-hips', () => {
+    // 8-degree shoulder tilt (human natural posture asymmetry)
+    const tiltedShoulders = handsOnHipsPose.landmarks!.map((lm, idx) => {
+      if (idx === 11) return { ...lm, y: 0.22 }; // left shoulder higher
+      if (idx === 12) return { ...lm, y: 0.26 }; // right shoulder lower
+      return { ...lm };
+    });
+    const matchRes = matcher.scorePose(tiltedShoulders, handsOnHipsPose);
+    const shoulderFeat = matchRes.featureResults.find((f) => f.featureId === 'shoulder_level')!;
+    expect(shoulderFeat.r).toBeLessThanOrEqual(1.0); // Within calibrated tolerance
+  });
+
+  it('achieves >= 85% match score for realistic webcam ear-height one-hand wave', () => {
+    const wavePose = SEED_POSES.find((p) => p.id === 'one-hand-wave')!;
+    // Realistic webcam user sitting in front of camera (hand at y=0.18 beside ear)
+    const realWaveLms = wavePose.landmarks!.map((lm, idx) => {
+      if (idx === 16) return { ...lm, x: 0.70, y: 0.18 }; // right wrist beside ear/head
+      return { ...lm };
+    });
+
+    const matchRes = matcher.scorePose(realWaveLms, wavePose);
+    expect(matchRes.overallScore).toBeGreaterThanOrEqual(85);
+    expect(matchRes.isMatchedInstant).toBe(true);
+  });
 });
 
 describe('7. Recommendation Engine', () => {

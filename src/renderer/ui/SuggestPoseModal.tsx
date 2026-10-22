@@ -30,13 +30,13 @@ export const SuggestPoseModal: React.FC<SuggestPoseModalProps> = ({
             </div>
             <div>
               <h2 className="text-lg font-bold text-[#F4F6F4] flex items-center gap-2">
-                Pose Suggested From Live Frame
+                Stance Detected & Pose Recommended
                 <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#4ADE80]/20 text-[#4ADE80] border border-[#4ADE80]/30">
                   Live Match
                 </span>
               </h2>
               <p className="text-xs text-[#94A39E]">
-                We analyzed your current posture and found the closest matching exercises:
+                We analyzed your live camera framing and biomechanics to recommend the optimal poses:
               </p>
             </div>
           </div>

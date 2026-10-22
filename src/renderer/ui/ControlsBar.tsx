@@ -62,7 +62,7 @@ export const ControlsBar: React.FC<ControlsBarProps> = ({
             className="bg-transparent text-xs text-[#F4F6F4] focus:outline-none cursor-pointer disabled:opacity-60 max-w-[150px] truncate"
             aria-label="Select Camera Device"
           >
-            {devices.length === 0 && <option value="">Default Camera</option>}
+            <option value="" className="bg-[#16382D] text-[#F4F6F4]">Default Camera</option>
             {devices.map((d) => (
               <option key={d.deviceId} value={d.deviceId} className="bg-[#16382D] text-[#F4F6F4]">
                 {d.label}

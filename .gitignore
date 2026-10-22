@@ -56,3 +56,17 @@ temp/
 
 # Large External Dataset (12,014 local inspection images per Section A11)
 assets/
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+*.egg-info/
+.pytest_cache/
+
+# Private preparation guides & local docx generators
+docs/*.docx
+tools/*_docx.py

@@ -168,6 +168,8 @@ test.describe('Phase 2: Camera Pipeline & Marker Alignment Verification', () => 
     });
 
     await page.goto('/');
+    await page.waitForLoadState('domcontentloaded');
+    await page.locator('body').click();
     await page.keyboard.press('Control+Shift+D');
     await page.waitForSelector('text=Pose Diagnostics (Ctrl+Shift+D)');
 

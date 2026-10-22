@@ -66,9 +66,9 @@ export class PoseEstimator {
         },
         runningMode: 'VIDEO',
         numPoses: options.numPoses ?? 2,
-        minPoseDetectionConfidence: options.minPoseDetectionConfidence ?? 0.35,
-        minPosePresenceConfidence: options.minPosePresenceConfidence ?? 0.35,
-        minTrackingConfidence: options.minTrackingConfidence ?? 0.35,
+        minPoseDetectionConfidence: options.minPoseDetectionConfidence ?? 0.45,
+        minPosePresenceConfidence: options.minPosePresenceConfidence ?? 0.45,
+        minTrackingConfidence: options.minTrackingConfidence ?? 0.40,
       });
 
       console.log(`[PoseEstimator] Initialized MediaPipe PoseLandmarker (${this.currentModelVariant})`);
@@ -84,9 +84,9 @@ export class PoseEstimator {
         },
         runningMode: 'VIDEO',
         numPoses: options.numPoses ?? 2,
-        minPoseDetectionConfidence: options.minPoseDetectionConfidence ?? 0.35,
-        minPosePresenceConfidence: options.minPosePresenceConfidence ?? 0.35,
-        minTrackingConfidence: options.minTrackingConfidence ?? 0.35,
+        minPoseDetectionConfidence: options.minPoseDetectionConfidence ?? 0.45,
+        minPosePresenceConfidence: options.minPosePresenceConfidence ?? 0.45,
+        minTrackingConfidence: options.minTrackingConfidence ?? 0.40,
       });
     } finally {
       this.isInitializing = false;
@@ -169,41 +169,63 @@ export class PoseEstimator {
       };
     });
 
+    // Filter candidate detections to remove phantom noise (must have at least 8 visible landmarks and minimum area)
+    const validDetected = detected.filter((p) => {
+      const visCount = p.landmarks.filter((lm) => lm.visibility >= 0.40).length;
+      return visCount >= 8 && p.boundingBox.area >= 0.03;
+    });
+
+    const activeCandidates = validDetected.length > 0 ? validDetected : detected;
+
     // Primary person selection with sticky hysteresis (Section A6)
-    if (this.primaryPersonIndex >= detected.length) {
+    if (this.primaryPersonIndex >= activeCandidates.length) {
       this.primaryPersonIndex = 0;
     }
 
-    if (detected.length === 1) {
+    if (activeCandidates.length === 1) {
       this.primaryPersonIndex = 0;
-    } else if (detected.length > 1) {
+    } else if (activeCandidates.length > 1) {
       let bestIdx = 0;
       let bestScore = -1;
-      detected.forEach((p, idx) => {
+      activeCandidates.forEach((p, idx) => {
         if (p.score > bestScore) {
           bestScore = p.score;
           bestIdx = idx;
         }
       });
 
-      const currentScore = detected[this.primaryPersonIndex]?.score ?? 0;
+      const currentScore = activeCandidates[this.primaryPersonIndex]?.score ?? 0;
       if (bestScore > currentScore * 1.25 || currentScore === 0) {
         this.primaryPersonIndex = bestIdx;
       }
     }
 
-    const primaryPerson = detected[this.primaryPersonIndex] ?? detected[0] ?? null;
+    const primaryPerson = activeCandidates[this.primaryPersonIndex] ?? activeCandidates[0] ?? null;
+
+    // Filter secondary persons: remove duplicates that overlap significantly with primary person
+    const distinctPersons = activeCandidates.filter((p, idx) => {
+      if (idx === this.primaryPersonIndex) return true;
+      if (!primaryPerson) return true;
+      const dx = p.boundingBox.centerX - primaryPerson.boundingBox.centerX;
+      const dy = p.boundingBox.centerY - primaryPerson.boundingBox.centerY;
+      const centerDist = Math.hypot(dx, dy);
+      return centerDist >= 0.18; // Only keep truly distinct other individuals in the room
+    });
 
     return {
       primaryPerson,
-      allPersons: detected,
+      allPersons: distinctPersons,
       inferenceTimeMs,
-      multiplePersonsDetected: detected.length > 1,
+      multiplePersonsDetected: distinctPersons.length > 1,
     };
   }
 
   public setPrimaryPersonIndex(index: number): void {
     this.primaryPersonIndex = index;
+  }
+
+  public getPrimaryPersonIndex(): number {
+    return this.primaryPersonIndex;
   }
 
   public getModelVariant(): 'lite' | 'full' | 'heavy' {

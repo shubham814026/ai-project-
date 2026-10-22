@@ -10,6 +10,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getAppMetrics: async () => {
     return await ipcRenderer.invoke('get-app-metrics');
   },
+  saveSnapshot: async (base64Data: string, filename: string) => {
+    return await ipcRenderer.invoke('save-snapshot', { base64Data, filename });
+  },
   onWindowBlur: (callback: () => void) => {
     ipcRenderer.on('window-blur', callback);
   },

@@ -67,33 +67,70 @@ export class CorrectionGenerator {
     if (!matchResult.coveragePassed) {
       this.activeInstructions.clear();
       this.candidateTimers.clear();
-      return {
-        primaryInstruction: null,
-        secondaryInstructions: [],
-        allActiveInstructions: [],
-        framingInstruction: 'Step back so full upper body is visible',
-      };
-    }
 
-    if (matchResult.missingLandmarks.length > 0) {
-      const missingUpper = matchResult.missingLandmarks.some((idx) => idx <= 16);
-      const missingLower = matchResult.missingLandmarks.some((idx) => idx >= 23);
-      let text = 'Adjust your position so all joints are visible';
-      if (missingLower && !missingUpper) {
-        text = 'Step back so your legs and feet are in frame';
-      } else if (missingUpper) {
-        text = 'Step back so your arms and hands are in frame';
+      let framingMsg = 'Adjust position so arms and hands are in view';
+      const shouldersVis =
+        (userLandmarks[11]?.visibility ?? 0) >= 0.4 &&
+        (userLandmarks[12]?.visibility ?? 0) >= 0.4;
+
+      if (!shouldersVis) {
+        framingMsg = 'Step back so upper body is visible';
+      } else {
+        // Shoulders are visible: check specific limb cutoff
+        const elbow14High = (userLandmarks[14]?.y ?? 1.0) < 0.45;
+        const elbow13High = (userLandmarks[13]?.y ?? 1.0) < 0.45;
+        const wrist16Offscreen =
+          (userLandmarks[16]?.visibility ?? 0) < 0.4 || (userLandmarks[16]?.y ?? 0) <= 0.06;
+        const wrist15Offscreen =
+          (userLandmarks[15]?.visibility ?? 0) < 0.4 || (userLandmarks[15]?.y ?? 0) <= 0.06;
+
+        if ((elbow14High && wrist16Offscreen) || (elbow13High && wrist15Offscreen)) {
+          framingMsg = 'Lower hand: keep hand inside camera view (bend elbow)';
+        } else if (
+          matchResult.missingLandmarks.some((idx) => idx === 15 || idx === 16) &&
+          (userLandmarks[16]?.visibility ?? 0) < 0.4 &&
+          (userLandmarks[15]?.visibility ?? 0) < 0.4
+        ) {
+          framingMsg = 'Bring hands into frame for this gesture';
+        } else {
+          framingMsg = 'Align with pose guide overlay';
+        }
       }
+
       return {
         primaryInstruction: null,
         secondaryInstructions: [],
         allActiveInstructions: [],
-        framingInstruction: text,
+        framingInstruction: framingMsg,
       };
     }
 
-    // 2. Filter unresolved features (r > 1.0)
-    const rawViolations = matchResult.unresolvedFeatures.filter((f) => f.visible);
+    // If instant match is achieved, clear all active adjustment arrows and instructions
+    if (matchResult.isMatchedInstant) {
+      this.activeInstructions.clear();
+      this.candidateTimers.clear();
+      return {
+        primaryInstruction: null,
+        secondaryInstructions: [],
+        allActiveInstructions: [],
+        framingInstruction: null,
+      };
+    }
+
+    // Only warn about missing upper limbs (arms/hands). Do not block upper-body poses if lower body is out of frame.
+    const missingUpper = matchResult.missingLandmarks.filter((idx) => idx <= 16);
+    if (missingUpper.length > 2) {
+      return {
+        primaryInstruction: null,
+        secondaryInstructions: [],
+        allActiveInstructions: [],
+        framingInstruction: 'Step back so your arms and hands are in frame',
+      };
+    }
+
+    // 2. Filter genuine violations (deadband at r >= 1.15 to suppress micro-tremor; suppress minor adjustments when score >= 82%)
+    const minRThreshold = matchResult.overallScore >= 82.0 ? 1.40 : 1.15;
+    const rawViolations = matchResult.unresolvedFeatures.filter((f) => f.visible && f.r >= minRThreshold);
 
     // 3. Compute priority and sort descending
     const prioritized = rawViolations.map((f) => {
@@ -151,7 +188,7 @@ export class CorrectionGenerator {
       anatomicalSide = 'left';
       jointIndex = LANDMARK_INDEX.LEFT_ELBOW;
       jointName = 'left elbow';
-      direction = f.delta < 0 ? 'bend' : 'straighten';
+      direction = f.delta < 0 ? 'straighten' : 'bend';
       text = direction === 'bend'
         ? TEMPLATES.bend_elbow({ slightly: isSlightly, anatomicalSide: 'left', jointName, direction })
         : TEMPLATES.straighten_elbow({ slightly: isSlightly, anatomicalSide: 'left', jointName, direction });
@@ -159,7 +196,7 @@ export class CorrectionGenerator {
       anatomicalSide = 'right';
       jointIndex = LANDMARK_INDEX.RIGHT_ELBOW;
       jointName = 'right elbow';
-      direction = f.delta < 0 ? 'bend' : 'straighten';
+      direction = f.delta < 0 ? 'straighten' : 'bend';
       text = direction === 'bend'
         ? TEMPLATES.bend_elbow({ slightly: isSlightly, anatomicalSide: 'right', jointName, direction })
         : TEMPLATES.straighten_elbow({ slightly: isSlightly, anatomicalSide: 'right', jointName, direction });
@@ -175,11 +212,23 @@ export class CorrectionGenerator {
       jointName = 'shoulders';
       direction = 'level';
       text = TEMPLATES.level_shoulders({ slightly: false, jointName, direction });
+    } else if (f.featureId.includes('spine') || f.featureId.includes('torso_upright') || f.featureId.includes('slouch')) {
+      anatomicalSide = 'center';
+      jointIndex = LANDMARK_INDEX.NOSE;
+      jointName = 'spine';
+      direction = 'up';
+      text = 'Sit tall with upright spine';
+    } else if (f.featureId.includes('head_level')) {
+      anatomicalSide = 'center';
+      jointIndex = LANDMARK_INDEX.NOSE;
+      jointName = 'head';
+      direction = 'level';
+      text = 'Keep head straight and level';
     } else if (f.featureId.includes('knee') || f.featureId.includes('leg')) {
       anatomicalSide = f.featureId.includes('left') ? 'left' : 'right';
       jointIndex = anatomicalSide === 'left' ? LANDMARK_INDEX.LEFT_KNEE : LANDMARK_INDEX.RIGHT_KNEE;
       jointName = `${anatomicalSide} knee`;
-      direction = f.delta < 0 ? 'bend' : 'straighten';
+      direction = f.delta < 0 ? 'straighten' : 'bend';
       text = direction === 'bend'
         ? TEMPLATES.bend_knee({ slightly: isSlightly, anatomicalSide, jointName, direction })
         : TEMPLATES.straighten_knee({ slightly: isSlightly, anatomicalSide, jointName, direction });
@@ -194,8 +243,11 @@ export class CorrectionGenerator {
     }
 
     // Compute arrow vectors (from user joint to target joint)
+    // Section A6, A8, A9: Face Occlusion Protection.
+    // NEVER draw arrows on the face (landmarks 0..10).
+    // Posture, head, and neck corrections are delivered strictly via textual HUD banner and audio synthesis.
     let arrow: CorrectionInstruction['arrow'] = undefined;
-    if (targetLandmarks && targetLandmarks[jointIndex] && userLandmarks[jointIndex]) {
+    if (jointIndex >= 11 && targetLandmarks && targetLandmarks[jointIndex] && userLandmarks[jointIndex]) {
       const uPt = userLandmarks[jointIndex];
       const tPt = targetLandmarks[jointIndex];
       const dx = tPt.x - uPt.x;
@@ -244,14 +296,14 @@ export class CorrectionGenerator {
   ): CorrectionInstruction[] {
     const candidateMap = new Map<string, CorrectionInstruction>(candidates.map((c) => [c.id, c]));
 
-    // Check existing active instructions for clearing (r < 0.8) and minimum display duration (1200ms)
+    // Check existing active instructions for clearing (r <= 1.05) and prompt release (600ms)
     for (const [id, active] of Array.from(this.activeInstructions.entries())) {
       const featureMatch = allFeatureResults.find((f) => f.featureId === active.featureId);
-      const isResolved = featureMatch ? featureMatch.r < GUIDANCE_CONFIG.CLEAR_TOLERANCE_R : false;
+      const isResolved = featureMatch ? featureMatch.r <= 1.05 : false;
       const displayedDuration = currentTime - active.firstSeenTime;
 
-      if (isResolved && displayedDuration >= GUIDANCE_CONFIG.MIN_DISPLAY_DURATION_MS) {
-        // Clear resolved instruction
+      if (isResolved && displayedDuration >= 600) {
+        // Clear resolved instruction promptly
         this.activeInstructions.delete(id);
         this.candidateTimers.delete(id);
       } else {

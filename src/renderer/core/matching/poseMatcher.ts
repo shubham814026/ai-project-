@@ -11,7 +11,7 @@
 
 import { ReferencePose, NormalizedLandmark, PoseFeature } from '../library/types';
 import { MATCHING_THRESHOLDS, FILTER_CONFIG } from '../settings/constants';
-import { calculate2DAngle, calculateHorizontalTilt, calculate2DDistance } from '../geometry/angles';
+import { calculate2DAngle, calculateHorizontalTilt, calculateVerticalTilt, calculate2DDistance } from '../geometry/angles';
 import { normalizeLandmarks } from '../geometry/normalizer';
 
 export interface FeatureMatchResult {
@@ -43,6 +43,9 @@ export interface PoseMatchResult {
 
 export class PoseMatcher {
   private matchStartTime: number | null = null;
+  private holdDropoutStartTime: number | null = null;
+  private lastHoldProgress: number = 0;
+  private lastFrameTime: number | null = null;
   private exitHysteresisStartTime: number | null = null;
   private isMatchedStable: boolean = false;
 
@@ -61,13 +64,33 @@ export class PoseMatcher {
     if (feature.kind === 'angle' && lms.length >= 3) {
       val = calculate2DAngle(landmarks[lms[0]], landmarks[lms[1]], landmarks[lms[2]]);
     } else if (feature.kind === 'tilt' && lms.length >= 2) {
-      val = calculateHorizontalTilt(landmarks[lms[0]], landmarks[lms[1]]);
+      if (lms.length >= 3) {
+        // Vertical spine/neck tilt: landmark 0 (nose) relative to mid-point of shoulders (landmarks[1] & [2])
+        const midBottom = {
+          x: (landmarks[lms[1]].x + landmarks[lms[2]].x) / 2,
+          y: (landmarks[lms[1]].y + landmarks[lms[2]].y) / 2,
+        };
+        val = calculateVerticalTilt(landmarks[lms[0]], midBottom);
+      } else {
+        val = calculateHorizontalTilt(landmarks[lms[0]], landmarks[lms[1]]);
+      }
     } else if (feature.kind === 'distance' && lms.length >= 2) {
       // Torso-scaled distance using normalized coordinates
       val = calculate2DDistance(normalized[lms[0]], normalized[lms[1]]);
     } else if (feature.kind === 'position' && lms.length >= 1) {
-      // Y-height relative to image plane
-      val = landmarks[lms[0]].y;
+      if (lms.length >= 3) {
+        // Upright head-to-shoulder vertical extension ratio: (midShoulder.y - head.y) / shoulderWidth
+        const midShY = (landmarks[lms[1]].y + landmarks[lms[2]].y) / 2;
+        const headY = landmarks[lms[0]].y;
+        const shWidth = calculate2DDistance(landmarks[lms[1]], landmarks[lms[2]]);
+        val = shWidth > 0.04 ? (midShY - headY) / shWidth : 0.50;
+      } else if (lms.length >= 2) {
+        // Relative Y-offset (e.g. wrist relative to shoulder)
+        val = landmarks[lms[0]].y - landmarks[lms[1]].y;
+      } else {
+        // Torso-normalized Y coordinate
+        val = normalized[lms[0]] ? normalized[lms[0]].y : landmarks[lms[0]].y;
+      }
     }
 
     return { value: val, visible: true };
@@ -202,8 +225,28 @@ export class PoseMatcher {
       }
     }
 
+    const nominalVisibleWeight = featureResults
+      .filter((f) => f.visible)
+      .reduce((sum, f) => sum + (f.critical ? MATCHING_THRESHOLDS.WEIGHT_CRITICAL : f.weight), 0);
+    const nominalWeightRatio = totalWeight > 0 ? nominalVisibleWeight / totalWeight : 0;
     const visibleWeightRatio = totalWeight > 0 ? visibleWeight / totalWeight : 0;
-    const coveragePassed = visibleWeightRatio >= MATCHING_THRESHOLDS.MIN_REQUIRED_WEIGHT_COVERAGE_RATIO;
+
+    // Check if all critical features defined for this pose are visible
+    const criticalFeatures = referencePose.features.filter((f) => f.critical);
+    const allCriticalVisible =
+      criticalFeatures.length === 0 ||
+      criticalFeatures.every((cf) => {
+        const res = featureResults.find((r) => r.featureId === cf.id);
+        return res && res.visible;
+      });
+
+    // Coverage passes if all critical features are visible and at least 35% of total feature weight is present (desk/headshot framing)
+    // OR if the nominal weight ratio meets the standard coverage threshold
+    const coveragePassed =
+      (allCriticalVisible && nominalWeightRatio >= 0.35) ||
+      nominalWeightRatio >= MATCHING_THRESHOLDS.MIN_REQUIRED_WEIGHT_COVERAGE_RATIO ||
+      visibleWeightRatio >= MATCHING_THRESHOLDS.MIN_REQUIRED_WEIGHT_COVERAGE_RATIO;
+
     const overallScore = coveragePassed && visibleWeight > 0 ? (weightedScoreSum / visibleWeight) * 100 : 0;
 
     const isMatchedInstant =
@@ -281,23 +324,56 @@ export class PoseMatcher {
 
     // Not matched yet: check hold progress
     if (isInstantMatched) {
+      this.holdDropoutStartTime = null;
       if (this.matchStartTime === null) {
         this.matchStartTime = timestamp;
       }
       const elapsed = timestamp - this.matchStartTime;
       const progress = Math.min(1.0, elapsed / MATCHING_THRESHOLDS.HOLD_DURATION_MS);
+      this.lastHoldProgress = progress;
       if (progress >= 1.0) {
         this.isMatchedStable = true;
       }
+      this.lastFrameTime = timestamp;
       return { isStableMatched: this.isMatchedStable, holdProgress: progress };
     } else {
+      // Grace buffer for active countdown: prevent transient 1-2 frame camera flickers from resetting progress
+      const hasSevereCritical = criticalViolations.some((v) => v.r > MATCHING_THRESHOLDS.MAX_CRITICAL_R_EXIT_HYSTERESIS);
+      const isEligibleForGrace =
+        this.matchStartTime !== null &&
+        this.lastHoldProgress > 0 &&
+        score >= MATCHING_THRESHOLDS.MATCH_HYSTERESIS_EXIT_SCORE &&
+        !hasSevereCritical;
+
+      if (isEligibleForGrace) {
+        if (this.holdDropoutStartTime === null) {
+          this.holdDropoutStartTime = timestamp;
+        }
+        const dropoutElapsed = timestamp - this.holdDropoutStartTime;
+        if (dropoutElapsed < MATCHING_THRESHOLDS.HOLD_GRACE_PERIOD_MS) {
+          // Grace active: pause countdown and preserve progress
+          if (this.lastFrameTime !== null && this.matchStartTime !== null) {
+            this.matchStartTime += (timestamp - this.lastFrameTime);
+          }
+          this.lastFrameTime = timestamp;
+          return { isStableMatched: false, holdProgress: this.lastHoldProgress };
+        }
+      }
+
+      // Beyond grace buffer or user dropped out completely
       this.matchStartTime = null;
+      this.holdDropoutStartTime = null;
+      this.lastHoldProgress = 0;
+      this.lastFrameTime = timestamp;
       return { isStableMatched: false, holdProgress: 0 };
     }
   }
 
   public reset(): void {
     this.matchStartTime = null;
+    this.holdDropoutStartTime = null;
+    this.lastHoldProgress = 0;
+    this.lastFrameTime = null;
     this.exitHysteresisStartTime = null;
     this.isMatchedStable = false;
   }

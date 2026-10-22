@@ -1,61 +1,61 @@
-# Pose Coach 🧘‍♂️📸
+# AI-based Pose Recommendation and Camera Guidance (DirectAI Studio) 📸🧘‍♂️
 
-Pose Coach is an intelligent, privacy-first desktop application that uses your laptop or USB webcam to detect your body pose with a self-hosted on-device AI model and guide you with real-time visual corrections toward a chosen target pose.
-
-This is not a skeleton demo. You see yourself live, select a target pose, receive immediate on-screen biomechanical adjustments, and hold until you achieve a stable match. All processing happens 100% locally on your machine.
-
----
-
-## 🚀 Key Highlights
-- **100% Local & Private:** Self-hosted MediaPipe Pose Landmarker models (`.task`) and WebAssembly (WASM). Zero network requests, zero frame saving.
-- **Biomechanical Angle & Feature Matching:** Normalized joint angles, torso-scaled distances, and tilt checks with calibrated tolerances and hysteresis.
-- **Fluid 60 FPS Visual Overlay:** Multi-layered canvas with exponential easing (100ms time constant) ensuring fluid motion even when inference runs at 15–30 Hz.
-- **Actionable Visual Corrections:** Clear on-video directional arrows routed away from the face, paired with short imperative instructions (≤ 8 words).
-- **Curated Pose Library:** Authored reference poses with resolution-independent SVG thumbnails.
-- **Dual Runtime:** Runs as a native desktop application (Electron) or directly in Google Chrome / Microsoft Edge from the Vite dev server.
+> **System Architecture:** Dual-Engine Vision Pipeline (Engine 1: Composition Guidance • Engine 2: Kinematic Pose Matching)  
+> **Execution Model:** 100% On-Device WebAssembly SIMD • Zero Cloud Dependencies • $0 Operational Cost  
+> **Deployment Target:** Cross-platform Desktop Application (Electron + React + TypeScript)
 
 ---
 
-## 💻 Reference Machine Baseline (Phase 1)
-Recorded on the target host hardware:
-- **Operating System:** Microsoft Windows 11 Home Single Language (64-bit, `win32`)
-- **Processor:** 13th Gen Intel(R) Core(TM) i5-13450HX (10 Cores, 16 Threads, up to 4.6 GHz)
-- **Memory:** 24 GB DDR5 RAM (~23.7 GB usable)
-- **Runtimes:** Node.js v22.17.1, Python 3.13.5
-- **Display & Audio:** Dual GPU (Intel UHD Graphics + NVIDIA GeForce RTX)
+## 🌟 Executive Overview & Problem Addressed
+
+Traditional webcam pose estimation tools frequently suffer from two critical pitfalls:
+1. **The Triviality Trap:** Demonstrating basic gestures (like waving or crossing arms) lacks practical engineering utility for production applications.
+2. **The Workflow Disconnect:** Content creators, remote presenters, and podcasters record in OBS or Zoom and cannot look at live arrows during a 30-minute recording session.
+
+**DirectAI Studio** solves this through a practical, high-value real-world workflow: **Autonomous Studio Pre-Flight Calibration & AI Auto-Shutter Headshot Creator**.
+- **Engine 1 (Camera Guidance):** Evaluates Rule-of-Thirds framing, crown headroom, horizontal centering, and shot scale before recording starts.
+- **Engine 2 (Pose Recommendation & Coaching):** Analyzes posture ergonomics (upright spine, level shoulders, relaxed desk kinematics) and aesthetic creator stances.
+- **Autonomous Auto-Shutter:** When the creator holds a verified pose and framing for 1.5 seconds, the AI fires a high-resolution snapshot with an on-screen flash and audio shutter sound, saving pristine portraits to a local gallery.
 
 ---
 
-## 📦 Pinned Dependencies
-All dependencies are strictly pinned to ensure reproducible builds:
+## 🚀 Key Technical Capabilities
 
-| Package | Version | Purpose |
+- **Dual-Engine Architecture:**
+  - **Engine 1 (Composition Analyzer):** Real-time evaluation of crown headroom ratio ($y_{\text{crown}} / H$), center offset ($|x_{\text{mid}} - 0.5|$), and eye-line alignment to the upper third ($y = 0.333$).
+  - **Engine 2 (Kinematic Matcher):** Scale- and translation-invariant joint angle modeling, lateral roll tilt, and Lorentzian penalty scoring.
+- **Robust 3D Slouch Detection:** Couples camera headroom ($y_{\text{crown}} > 0.235$) with kinematic alignment to prevent false matches when a user slumps into their chair.
+- **Strict Face Occlusion Protection:** Algorithmic guarantee that visual correction arrows and skeletal overlay lines are never drawn over facial landmarks (0–10). Head and spine guidance is delivered strictly via floating HUD banners and spoken audio.
+- **Autonomous AI Auto-Shutter:** Temporal hysteresis with a 1.5-second hold progress ring, firing automatic headshots into a local gallery upon verified alignment.
+- **Native Windows & Electron PNG Persistence:** Custom Electron IPC channel (`save-snapshot`) saving high-resolution captures directly to the Windows `Downloads` folder, eliminating Windows `.tmp` download errors.
+- **Offline Edge Speech & Web Audio Synthesizer:** Directorial voice feedback running 100% locally via the Web Speech API and procedural Web Audio API shutter sounds (zero external API calls).
+- **Biomechanical Telemetry & Session Audit:** Interactive diagnostic inspector (`Ctrl+Shift+D` or HUD toggle) displaying real-time FPS, inference latency, framing distributions, kinematic confidence, and structured audit export.
+
+---
+
+## 💻 Tech Stack & Pinned Dependencies
+
+| Component | Technology | Purpose |
 |:---|:---:|:---|
-| `react` | `18.3.1` | Core UI library |
-| `react-dom` | `18.3.1` | React DOM renderer |
-| `@mediapipe/tasks-vision` | `0.10.14` | Pose Landmarker & WASM vision tasks |
-| `lucide-react` | `0.439.0` | Accessible SVG icon suite |
-| `@fontsource/inter` | `5.0.21` | Bundled local typography (no CDN) |
-| `vite` | `5.4.2` | Fast bundling and HMR server |
-| `typescript` | `5.5.4` | Static typing and compiler |
-| `tailwindcss` | `3.4.10` | Utility-first design system styling |
-| `electron` | `31.3.1` | Hardened desktop Chromium runtime |
-| `vitest` | `2.0.5` | Unit and benchmark test runner |
-| `@playwright/test` | `1.46.1` | Browser end-to-end automation harness |
-| `electron-builder` | `24.13.3` | Windows NSIS installer packager |
+| **Frontend Framework** | React 18.3.1 + TypeScript 5.5.4 | Component hierarchy & state management |
+| **Vision Model** | `@mediapipe/tasks-vision` 0.10.14 | On-device PoseLandmarker via WebAssembly |
+| **Styling** | Tailwind CSS 3.4.10 | Bespoke Deep Emerald (`#0F251E`) & Brass (`#C5A059`) theme |
+| **Desktop Runtime** | Electron 31.3.1 | Cross-platform container with hardened CSP & IPC |
+| **Testing** | Vitest 2.0.5 + Playwright 1.46.1 | 58 unit tests & 4 multi-resolution E2E tests |
+| **Icons & Fonts** | Lucide React + Fontsource Inter | Bundled local accessible SVG icons & typography |
 
 ---
 
-## 🛠️ Installation & Setup
+## 🛠️ Quick Start Guide for Teammates
 
 ### 1. Install Node Dependencies
 ```bash
 npm install
 ```
-*(The automated post-install hook will copy MediaPipe WASM binaries to `public/wasm/`)*
+*(The automated post-install hook copies MediaPipe WASM binaries to `public/wasm/`)*
 
-### 2. Download Self-Hosted Models
-Download official Google MediaPipe Pose Landmarker models into `public/models/` and record cryptographic checksums:
+### 2. Verify Models
+Ensure self-hosted `.task` models exist in `public/models/`:
 ```bash
 python tools/download_models.py
 ```
@@ -64,45 +64,114 @@ python tools/download_models.py
 ```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in Chrome or Edge.
+Open [http://localhost:5173](http://localhost:5173) in Google Chrome or Microsoft Edge.
 
-### 4. Run Desktop Application (Electron Mode)
+### 4. Run Desktop Application (Electron Native Mode)
 ```bash
 npm run dev:electron
 ```
 
-### 5. Run Unit & Benchmark Tests
+### 5. Run Verification Suites
 ```bash
-npm run test
-npm run test:coverage
-```
+# Run unit & mathematical test suite (58 passing tests)
+npx vitest run
 
-### 6. Build Production Bundle
-```bash
+# Run end-to-end multi-resolution camera pipeline tests (4 passing tests)
+npx playwright test
+
+# Verify production build compilation
 npm run build
 ```
 
 ---
 
-## 🧪 Testing & Verification
-- **Unit Tests:** 29 automated Vitest tests covering joint geometry, One Euro filter jitter reduction, torso normalization, coordinate transformations, mirror mode symmetry, hysteresis, and guidance templates.
-- **Matching Benchmark:** Empirical evaluation comparing the Angle & Feature model vs. the Euclidean distance baseline recorded in `reports/matching_comparison.md`.
-- **Contrast Audit:** Automated WCAG 2.1 AA luminance ratio verification script in `tools/benchmark/check_contrast.py`.
-- **Manual Checklist:** Complete human evaluation procedure in `docs/MANUAL_TEST_CHECKLIST.md`.
+## 📁 Repository Structure & Module Map
+
+```
+ai-project-/
+├── data/
+│   └── seed_poses.json                 # Authored reference poses with mathematical feature specs
+├── docs/
+│   ├── ARCHITECTURE.md                 # System architecture & coordinate mapping specs
+│   ├── MANUAL_TEST_CHECKLIST.md        # Manual QA evaluation checklist
+│   ├── PRIVACY_NOTES.md                # 100% on-device local execution guarantees
+│   └── ROADMAP.md                      # Feature evolution & roadmap
+├── public/
+│   ├── models/                         # Self-hosted MediaPipe PoseLandmarker .task models
+│   └── wasm/                           # Self-hosted WebAssembly runtime binaries
+├── src/
+│   ├── main/
+│   │   └── main.ts                     # Electron main process (CSP, IPC save-snapshot, window life)
+│   ├── preload/
+│   │   └── preload.ts                  # Secure context bridge exposing saveSnapshot & appMetrics
+│   └── renderer/
+│       ├── core/
+│       │   ├── camera/                 # CompositionAnalyzer, AudioSynthesizer, snapshot types
+│       │   ├── geometry/               # Scale-invariant angle & normalizer math
+│       │   ├── guidance/               # CorrectionGenerator, VoiceDirector, instruction templates
+│       │   ├── library/                # RecommendationEngine, seed poses, types
+│       │   ├── matching/               # PoseMatcher (Lorentzian scoring & hysteresis)
+│       │   ├── perf/                   # PerformanceMonitor (FPS, latency tracking)
+│       │   ├── pose/                   # PoseEstimator (MediaPipe wrapper), LandmarkFilter (One Euro)
+│       │   ├── render/                 # OverlayRenderer (60fps canvas), coordinate mapping
+│       │   └── settings/               # SettingsManager (localStorage persistence), constants
+│       └── ui/
+│           ├── GuidancePanel.tsx       # Live metrics, Rule of Thirds toggle & guidance cues
+│           ├── SessionAuditModal.tsx   # Real-time telemetry inspector & session audit export
+│           ├── SnapshotGalleryModal.tsx# Captured studio headshots with PNG download
+│           ├── VideoContainer.tsx      # Viewport, 60fps canvas overlay & shutter animations
+│           └── TopBar.tsx              # Audio toggle, Inspector HUD & Gallery controls
+├── tests/
+│   ├── e2e/                            # Playwright multi-resolution alignment verification
+│   └── unit/                           # 58 Vitest unit tests (angles, composition, studio features)
+└── tools/
+    ├── copy_wasm.js                    # Postinstall automated WebAssembly distributor
+    ├── curate_poses.cjs                # Script calibrating seed poses to kinematic consistency
+    └── download_models.py              # Offline model asset downloader
+```
 
 ---
 
-## 📖 Architecture & Privacy Docs
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): In-depth system design, module contracts, pipeline scheduling, and security hardening.
-- [docs/PRIVACY_NOTES.md](docs/PRIVACY_NOTES.md): Local execution guarantees, zero data storage, and dataset governance.
-- [docs/ROADMAP.md](docs/ROADMAP.md): Strategy for clustering the 12,014-image dataset to expand pose recommendations.
-- [reports/dataset_report.md](reports/dataset_report.md): Phase 1 read-only inspection and quality audit of `./assets/`.
+## 📐 Mathematical Formulation & Core Algorithms
+
+### 1. Scale-Invariant Kinematic Manifold
+Raw landmark coordinates $\mathbf{p} = (x, y, z)$ fluctuate with user height, camera focal length, and distance from the lens. DirectAI Studio maps keypoints into a scale- and translation-invariant coordinate space anchored at the mid-shoulder point:
+$$\mathbf{p}_{\text{norm}} = \frac{\mathbf{p} - \mathbf{p}_{\text{mid\_shoulder}}}{\|\mathbf{p}_{\text{left\_shoulder}} - \mathbf{p}_{\text{right\_shoulder}}\|}$$
+
+Limb kinematics are represented as 16 directional joint angles $\theta_j$ using the dot-product cosine metric:
+$$\theta_j = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \|\vec{v}\|}\right)$$
+This representation guarantees $100\%$ invariance to camera zoom, user proportions, and horizontal framing position.
+
+### 2. Continuous Cauchy / Lorentzian Loss Heuristic
+Traditional threshold matching causes jarring step-function score jumps when a limb crosses an arbitrary boundary. We model joint alignment as a continuous Cauchy (Lorentzian) distribution:
+$$s_i(\theta_i) = \frac{1}{1 + \left(\frac{|\theta_i - \theta_i^*|}{\tau_i}\right)^2}$$
+where $\theta_i^*$ is the reference target angle, and $\tau_i$ is the joint-specific tolerance threshold ($15^\circ$ for elbows/knees, $12^\circ$ for spine/torso alignment).
+
+The overall kinematic posture score is computed as a weighted combination across active joints:
+$$S_{\text{pose}} = \frac{\sum_{i=1}^{M} w_i \cdot s_i(\theta_i)}{\sum_{i=1}^{M} w_i} \times 100\%$$
+
+### 3. Hierarchical Slouch Prevention & Framing Constraint
+Webcams often frame only the upper chest and head, where forward slouching can falsely mimic an upright posture in 2D angle space. To resolve this ambiguity, DirectAI Studio tightly couples Engine 1's crown headroom metric with Engine 2's kinematic scorer:
+$$H_r = \frac{y_{\text{crown}}}{H_{\text{frame}}}$$
+$$\text{IF } H_r > 0.235 \land \text{Target} = \text{"creator-upright"} \implies \begin{cases} \text{Penalty: } -30\% \\ \text{Cap: } S_{\text{pose}} \le 65\% \\ \text{Instruction: } \text{"Sit taller: spine slouched"} \end{cases}$$
+This multi-objective constraint ensures that slouching immediately voids snapshot eligibility.
+
+### 4. Autonomous Auto-Shutter Hysteresis State Machine
+To guarantee hands-free studio capture without shutter jitter, the system maintains a temporal hysteresis buffer at 60 Hz:
+$$S_{t+1} = \begin{cases} S_t + \frac{\Delta t}{1.5}, & \text{if } S_{\text{framing}} \ge 70 \land S_{\text{pose}} \ge 75 \\ \max\left(0, S_t - \frac{\Delta t}{0.5}\right), & \text{otherwise} \end{cases}$$
+When $S_t \ge 1.0$ (1.5 continuous seconds of verified alignment), the state machine triggers:
+1. Visual white-out canvas flash animation (300ms ease-out)
+2. Procedural Web Audio camera shutter acoustic synthesis
+3. High-resolution canvas snapshot persisted to memory and filesystem via Electron IPC
+
+### 5. Adaptive Temporal Jitter Smoothing ($1€$ Filter)
+To eradicate webcam sensor jitter while preserving instantaneous response to deliberate user movement, landmark streams pass through a dual-cutoff $1€$ filter:
+$$\hat{x}_k = \alpha x_k + (1 - \alpha) \hat{x}_{k-1}, \quad \alpha = \frac{1}{1 + \frac{\tau}{T_e}}$$
+The cutoff frequency dynamically scales with landmark velocity:
+$$f_c = f_{c,\min} + \beta |\dot{\hat{x}}_k|$$
+Configured with $f_{c,\min} = 1.0\text{ Hz}$ and speed coefficient $\beta = 0.007$, the system eliminates resting hand micro-tremors without adding latency during rapid movement.
 
 ---
 
-## ⌨️ Keyboard Shortcuts
-- `Ctrl + Shift + D`: Toggle Hidden Biomechanical Diagnostics Drawer
-- `Space`: Pause / Resume Camera Stream
-- `M`: Toggle Camera Mirror Mode
-- `S`: Toggle Skeleton Overlay
-- `G`: Toggle Target Guide Skeleton
+## 🔒 Privacy & Local Processing Guarantee
+DirectAI Studio processes **100% of video frames in volatile RAM**. No video frames or audio samples are ever written to disk, sent over network sockets, or uploaded to any cloud infrastructure.

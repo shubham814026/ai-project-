@@ -14,6 +14,9 @@ export interface AppSettings {
   allowMirroredMatching: boolean;
   smoothingEnabled: boolean;
   hasConsented: boolean;
+  inspectorMode: boolean;
+  voiceDirectorEnabled: boolean;
+  autoShutterEnabled: boolean;
 }
 
 const DEFAULT_SETTINGS: AppSettings = {
@@ -26,6 +29,9 @@ const DEFAULT_SETTINGS: AppSettings = {
   allowMirroredMatching: false,
   smoothingEnabled: true,
   hasConsented: false,
+  inspectorMode: false,
+  voiceDirectorEnabled: true,
+  autoShutterEnabled: true,
 };
 
 const STORAGE_KEY = 'pose_coach_user_settings_v1';
@@ -42,7 +48,13 @@ export class SettingsManager {
       if (typeof window !== 'undefined' && window.localStorage) {
         const stored = window.localStorage.getItem(STORAGE_KEY);
         if (stored) {
-          return { ...DEFAULT_SETTINGS, ...JSON.parse(stored) };
+          const parsed = JSON.parse(stored);
+          return {
+            ...DEFAULT_SETTINGS,
+            ...parsed,
+            autoShutterEnabled: parsed.autoShutterEnabled !== false,
+            voiceDirectorEnabled: parsed.voiceDirectorEnabled !== false,
+          };
         }
       }
     } catch (e) {

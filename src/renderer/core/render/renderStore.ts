@@ -7,6 +7,7 @@
 
 import { NormalizedLandmark } from '../library/types';
 import { CorrectionInstruction } from '../guidance/correctionGenerator';
+import { CompositionResult } from '../camera/compositionAnalyzer';
 
 export class RenderStore {
   // Target raw landmarks from latest inference
@@ -15,6 +16,10 @@ export class RenderStore {
   public currentEasedLandmarks: NormalizedLandmark[] | null = null;
   // Target pose guide landmarks
   public targetGuideLandmarks: NormalizedLandmark[] | null = null;
+
+  // Camera Guidance Composition (Engine 1)
+  public cameraComposition: CompositionResult | null = null;
+  public showRuleOfThirds: boolean = true;
 
   // Visual states
   public corrections: CorrectionInstruction[] = [];
@@ -96,9 +101,14 @@ export class RenderStore {
     this.trackingLost = !landmarks || landmarks.length === 0;
   }
 
+  public setCameraComposition(composition: CompositionResult | null): void {
+    this.cameraComposition = composition;
+  }
+
   public reset(): void {
     this.targetUserLandmarks = null;
     this.currentEasedLandmarks = null;
+    this.cameraComposition = null;
     this.secondaryPersonsLandmarks = [];
     this.corrections = [];
     this.matchedJoints.clear();

@@ -158,7 +158,24 @@ export class CameraManager {
         },
       };
 
-      const stream = await navigator.mediaDevices.getUserMedia(constraints);
+      let stream: MediaStream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+      } catch (deviceErr) {
+        if (deviceId) {
+          console.warn('[CameraManager] Selected device failed, falling back to default camera:', deviceErr);
+          stream = await navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: {
+              width: { ideal: width },
+              height: { ideal: height },
+              frameRate: { ideal: CAMERA_CONFIG.DEFAULT_FPS },
+            },
+          });
+        } else {
+          throw deviceErr;
+        }
+      }
       this.currentStream = stream;
 
       if (this.videoElement) {

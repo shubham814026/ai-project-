@@ -1,5 +1,6 @@
 import { app, BrowserWindow, ipcMain, session } from 'electron';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -78,6 +79,30 @@ app.whenReady().then(() => {
   // IPC Handler for App Metrics (Section A7)
   ipcMain.handle('get-app-metrics', () => {
     return app.getAppMetrics();
+  });
+
+  // Direct snapshot persistence to user Downloads folder (eliminates Windows .tmp file download bug)
+  ipcMain.handle('save-snapshot', async (_event, { base64Data, filename }: { base64Data: string; filename: string }) => {
+    try {
+      const downloadsPath = app.getPath('downloads');
+      const safeFilename = filename.replace(/[^a-zA-Z0-9_.-]/g, '_');
+      const targetFile = safeFilename.endsWith('.png') ? safeFilename : `${safeFilename}.png`;
+      const filePath = path.join(downloadsPath, targetFile);
+      const base64Image = base64Data.replace(/^data:image\/\w+;base64,/, '');
+      const buffer = Buffer.from(base64Image, 'base64');
+      await fs.promises.writeFile(filePath, buffer);
+      return { success: true, filePath, filename: targetFile };
+    } catch (err: any) {
+      console.error('[Electron IPC save-snapshot failed]', err);
+      return { success: false, error: err.message };
+    }
+  });
+
+  // Ensure any triggered downloads save to Downloads directory with real filename
+  session.defaultSession.on('will-download', (_event, item) => {
+    const downloadsPath = app.getPath('downloads');
+    const filename = item.getFilename() || `DirectAI_Snapshot_${Date.now()}.png`;
+    item.setSavePath(path.join(downloadsPath, filename));
   });
 
   createWindow();

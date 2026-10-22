@@ -92,3 +92,64 @@ export function normalizeLandmarks(landmarks: NormalizedLandmark[]): {
     },
   };
 }
+
+/**
+ * Anchors and scales reference target landmarks directly onto the user's detected torso/shoulders.
+ * Transforms target pose from reference space into the user's real-time webcam frame.
+ * Uses shoulder-axis midpoint and biacromial width to guarantee exact alignment at desk distance.
+ */
+export function anchorLandmarksToUser(
+  targetLandmarks: NormalizedLandmark[],
+  userLandmarks: NormalizedLandmark[]
+): NormalizedLandmark[] {
+  if (!targetLandmarks || targetLandmarks.length < 13 || !userLandmarks || userLandmarks.length < 13) {
+    return targetLandmarks;
+  }
+
+  const uLSh = userLandmarks[LANDMARK_INDEX.LEFT_SHOULDER]; // 11
+  const uRSh = userLandmarks[LANDMARK_INDEX.RIGHT_SHOULDER]; // 12
+  const rLSh = targetLandmarks[LANDMARK_INDEX.LEFT_SHOULDER]; // 11
+  const rRSh = targetLandmarks[LANDMARK_INDEX.RIGHT_SHOULDER]; // 12
+
+  const userShouldersVisible = uLSh && uRSh && (uLSh.visibility ?? 0) >= 0.35 && (uRSh.visibility ?? 0) >= 0.35;
+  const refShouldersPresent = rLSh && rRSh;
+
+  if (!userShouldersVisible || !refShouldersPresent) {
+    return targetLandmarks;
+  }
+
+  const userMidShoulder = {
+    x: (uLSh.x + uRSh.x) / 2,
+    y: (uLSh.y + uRSh.y) / 2,
+  };
+
+  const refMidShoulder = {
+    x: (rLSh.x + rRSh.x) / 2,
+    y: (rLSh.y + rRSh.y) / 2,
+  };
+
+  const userWidth = calculate2DDistance(uLSh, uRSh);
+  const refWidth = calculate2DDistance(rLSh, rRSh);
+
+  if (userWidth < 0.04 || refWidth < 0.04) {
+    return targetLandmarks;
+  }
+
+  // Scale factor: matches target pose proportions directly to user's body size on camera
+  // Clamp scale to [0.65, 1.40] so target skeleton never blows up or contorts when user sits close to camera
+  const rawScale = userWidth / refWidth;
+  const scale = Math.max(0.65, Math.min(1.40, rawScale));
+
+  return targetLandmarks.map((lm) => {
+    const relX = lm.x - refMidShoulder.x;
+    const relY = lm.y - refMidShoulder.y;
+
+    return {
+      x: userMidShoulder.x + relX * scale,
+      y: userMidShoulder.y + relY * scale,
+      z: lm.z,
+      visibility: lm.visibility,
+    };
+  });
+}
+

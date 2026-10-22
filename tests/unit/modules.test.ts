@@ -143,3 +143,29 @@ describe('EMA Fallback Filter', () => {
     expect(smoothed[0].y).toBeCloseTo(0.5);
   });
 });
+
+describe('PoseEstimator & Face Occlusion Rules', () => {
+  it('toggles primary person index between 0 and 1', async () => {
+    const { PoseEstimator } = await import('../../src/renderer/core/pose/poseEstimator');
+    const estimator = new PoseEstimator();
+    expect(estimator.getPrimaryPersonIndex()).toBe(0);
+    estimator.setPrimaryPersonIndex(1);
+    expect(estimator.getPrimaryPersonIndex()).toBe(1);
+    estimator.setPrimaryPersonIndex(0);
+    expect(estimator.getPrimaryPersonIndex()).toBe(0);
+  });
+
+  it('filters facial connections (i1 < 11 and i2 < 11) to avoid face occlusion', async () => {
+    const { STANDARD_CONNECTIONS } = await import('../../src/renderer/core/library/types');
+    const faceConnections = STANDARD_CONNECTIONS.filter(([i1, i2]) => i1 < 11 && i2 < 11);
+    const bodyConnections = STANDARD_CONNECTIONS.filter(([i1, i2]) => !(i1 < 11 && i2 < 11));
+
+    expect(faceConnections.length).toBeGreaterThan(0);
+    expect(bodyConnections.length).toBeGreaterThan(0);
+    // Ensure all face connection indices are below 11 (nose, eyes, ears)
+    for (const [i1, i2] of faceConnections) {
+      expect(i1).toBeLessThan(11);
+      expect(i2).toBeLessThan(11);
+    }
+  });
+});

@@ -3,570 +3,544 @@ import { ReferencePose } from './types';
 
 export const SEED_POSES: ReferencePose[] = [
   {
-    "id": "stand-naturally",
-    "name": "Stand Naturally",
-    "category": "Standing",
+    "id": "seated-relaxed",
+    "name": "Upright Streamer & Creator Ergonomics",
+    "category": "Streaming / Ergonomics",
     "tags": [
-      "posture",
-      "baseline",
-      "standing",
-      "neutral"
-    ],
-    "difficulty": "beginner",
-    "framing": "full-body",
-    "description": "Upright, relaxed posture with arms hanging comfortably at sides, shoulders level and feet hip-width apart.",
-    "instructions": [
-      "Keep shoulders level and relaxed",
-      "Arms rest naturally at your sides",
-      "Distribute weight evenly on both feet"
-    ],
-    "requiredLandmarks": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28
-    ],
-    "features": [
-      {
-        "id": "shoulder_level",
-        "kind": "tilt",
-        "landmarks": [
-          11,
-          12
-        ],
-        "target": 0.0,
-        "tolerance": 5.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "hip_level",
-        "kind": "tilt",
-        "landmarks": [
-          23,
-          24
-        ],
-        "target": 0.0,
-        "tolerance": 5.0,
-        "weight": 1.5
-      },
-      {
-        "id": "left_arm_extension",
-        "kind": "angle",
-        "landmarks": [
-          11,
-          13,
-          15
-        ],
-        "target": 168.1,
-        "tolerance": 15.0,
-        "weight": 1.0
-      },
-      {
-        "id": "right_arm_extension",
-        "kind": "angle",
-        "landmarks": [
-          12,
-          14,
-          16
-        ],
-        "target": 168.1,
-        "tolerance": 15.0,
-        "weight": 1.0
-      },
-      {
-        "id": "left_knee_straight",
-        "kind": "angle",
-        "landmarks": [
-          23,
-          25,
-          27
-        ],
-        "target": 180.0,
-        "tolerance": 10.0,
-        "weight": 1.0
-      },
-      {
-        "id": "right_knee_straight",
-        "kind": "angle",
-        "landmarks": [
-          24,
-          26,
-          28
-        ],
-        "target": 180.0,
-        "tolerance": 10.0,
-        "weight": 1.0
-      }
-    ],
-    "landmarks": [
-      {
-        "x": 0.5,
-        "y": 0.12,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.48,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.47,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.46,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.53,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.54,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.56,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.48,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.4,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.6,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.36,
-        "y": 0.38,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.64,
-        "y": 0.38,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.35,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.65,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.34,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.35,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.65,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.57,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.43,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.57,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.43,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.57,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.42,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.58,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.96,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.57,
-        "y": 0.96,
-        "visibility": 0.9
-      }
-    ],
-    "mirrorAllowed": true,
-    "source": "authored",
-    "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"102.9\" x2=\"122.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"122.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Stand Naturally</text>\n</svg>"
-  },
-  {
-    "id": "hands-on-hips",
-    "name": "Hands on Hips",
-    "category": "Confident",
-    "tags": [
-      "confident",
-      "standing",
-      "waist",
-      "classic"
-    ],
-    "difficulty": "beginner",
-    "framing": "either",
-    "description": "Empowered, confident stance with both hands placed on hips/waist and elbows flared outwards.",
-    "instructions": [
-      "Place both hands firmly on your hips",
-      "Flare elbows outward symmetrically",
-      "Keep chest upright and shoulders level"
-    ],
-    "requiredLandmarks": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      23,
-      24
-    ],
-    "features": [
-      {
-        "id": "left_elbow_bend",
-        "kind": "angle",
-        "landmarks": [
-          11,
-          13,
-          15
-        ],
-        "target": 94.4,
-        "tolerance": 14.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "right_elbow_bend",
-        "kind": "angle",
-        "landmarks": [
-          12,
-          14,
-          16
-        ],
-        "target": 94.4,
-        "tolerance": 14.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "left_hand_to_hip",
-        "kind": "distance",
-        "landmarks": [
-          15,
-          23
-        ],
-        "target": 0.13,
-        "tolerance": 0.12,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "right_hand_to_hip",
-        "kind": "distance",
-        "landmarks": [
-          16,
-          24
-        ],
-        "target": 0.13,
-        "tolerance": 0.12,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "shoulder_level",
-        "kind": "tilt",
-        "landmarks": [
-          11,
-          12
-        ],
-        "target": 0.0,
-        "tolerance": 6.0,
-        "weight": 1.0
-      }
-    ],
-    "landmarks": [
-      {
-        "x": 0.5,
-        "y": 0.12,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.48,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.47,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.46,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.53,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.54,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.56,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.48,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.4,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.6,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.28,
-        "y": 0.38,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.72,
-        "y": 0.38,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.4,
-        "y": 0.5,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.6,
-        "y": 0.5,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.34,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.35,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.65,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.57,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.43,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.57,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.43,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.57,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.42,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.58,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.96,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.57,
-        "y": 0.96,
-        "visibility": 0.9
-      }
-    ],
-    "mirrorAllowed": true,
-    "source": "authored",
-    "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"66.6\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"66.6\" y1=\"102.9\" x2=\"84.8\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"133.4\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"133.4\" y1=\"102.9\" x2=\"115.2\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"66.6\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"133.4\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"124.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"124.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Hands on Hips</text>\n</svg>"
-  },
-  {
-    "id": "arms-crossed",
-    "name": "Arms Crossed",
-    "category": "Studio Portrait",
-    "tags": [
-      "business",
-      "portrait",
-      "upper-body",
-      "casual"
+      "ergonomics",
+      "streaming",
+      "desk",
+      "spine",
+      "creator"
     ],
     "difficulty": "beginner",
     "framing": "upper-body",
-    "description": "Classic executive fold across chest with forearms balanced and shoulders broad.",
+    "experimental": true,
+    "description": "The foundational studio stance: upright spine, level shoulders, and balanced neck posture for long recording sessions and desk streams.",
     "instructions": [
-      "Cross both arms across your lower chest",
-      "Rest hands against opposite upper arms",
-      "Keep shoulders relaxed and squared"
+      "Sit upright with spine comfortably straight",
+      "Keep both shoulders relaxed and horizontally level",
+      "Rest arms naturally on armrests or desk"
+    ],
+    "requiredLandmarks": [
+      11,
+      12
+    ],
+    "features": [
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 9,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "spine_vertical_alignment",
+        "kind": "tilt",
+        "landmarks": [
+          0,
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 7,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "head_level",
+        "kind": "tilt",
+        "landmarks": [
+          2,
+          5
+        ],
+        "target": 0,
+        "tolerance": 8,
+        "weight": 1.5
+      },
+      {
+        "id": "left_elbow_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 123,
+        "tolerance": 35,
+        "weight": 1
+      },
+      {
+        "id": "right_elbow_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 123,
+        "tolerance": 35,
+        "weight": 1
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.38,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.62,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.45,
+        "y": 0.46,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.55,
+        "y": 0.46,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.58,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.58,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.41,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.59,
+        "y": 0.7,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.41,
+        "y": 0.88,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.59,
+        "y": 0.88,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"76.0\" y2=\"104.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"76.0\" y1=\"104.0\" x2=\"90.0\" y2=\"119.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"124.0\" y2=\"104.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"124.0\" y1=\"104.0\" x2=\"110.0\" y2=\"119.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"150.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"150.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"150.8\" x2=\"114.0\" y2=\"150.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"76.0\" cy=\"104.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"124.0\" cy=\"104.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"90.0\" cy=\"119.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"110.0\" cy=\"119.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"150.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"150.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Upright Streamer & Creator Ergonomics</text>\n</svg>"
+  },
+  {
+    "id": "stand-naturally",
+    "name": "Podcaster Core Anchor / Level & Upright",
+    "category": "Podcasting",
+    "tags": [
+      "podcasting",
+      "creator",
+      "anchor",
+      "posture",
+      "baseline"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Core studio anchor: level shoulders, tall upright spine, and neutral neck posture for recording or streaming.",
+    "instructions": [
+      "Sit tall with spine aligned and chest open",
+      "Keep both shoulders level and relaxed",
+      "Rest arms comfortably on desk or chair armrests"
+    ],
+    "requiredLandmarks": [
+      11,
+      12
+    ],
+    "features": [
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 9,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "spine_vertical_alignment",
+        "kind": "tilt",
+        "landmarks": [
+          0,
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 7,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "head_level",
+        "kind": "tilt",
+        "landmarks": [
+          2,
+          5
+        ],
+        "target": 0,
+        "tolerance": 8,
+        "weight": 1.5
+      },
+      {
+        "id": "left_elbow_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 149,
+        "tolerance": 35,
+        "weight": 1
+      },
+      {
+        "id": "right_elbow_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 149,
+        "tolerance": 35,
+        "weight": 1
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.37,
+        "y": 0.42,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.63,
+        "y": 0.42,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.41,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.59,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"74.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"74.0\" y1=\"109.2\" x2=\"82.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"126.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"126.0\" y1=\"109.2\" x2=\"118.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"74.0\" cy=\"109.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"126.0\" cy=\"109.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"82.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"118.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Podcaster Core Anchor</text>\n</svg>"
+  },
+  {
+    "id": "arms-crossed",
+    "name": "Confident Guest / Folded Arms Anchor",
+    "category": "Podcasting",
+    "tags": [
+      "interview",
+      "podcasting",
+      "guest",
+      "confidence",
+      "presence"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Classic interview posture: arms folded comfortably across chest with level, relaxed shoulders.",
+    "instructions": [
+      "Fold arms comfortably across your mid-chest",
+      "Keep shoulders level and spine upright",
+      "Maintain direct eye contact with the camera lens"
     ],
     "requiredLandmarks": [
       11,
       12,
       13,
-      14,
-      15,
-      16
+      14
     ],
     "features": [
       {
@@ -577,9 +551,9 @@ export const SEED_POSES: ReferencePose[] = [
           13,
           15
         ],
-        "target": 56.3,
-        "tolerance": 15.0,
-        "weight": 2.0,
+        "target": 60,
+        "tolerance": 35,
+        "weight": 2,
         "critical": true
       },
       {
@@ -590,32 +564,10 @@ export const SEED_POSES: ReferencePose[] = [
           14,
           16
         ],
-        "target": 61.3,
-        "tolerance": 15.0,
-        "weight": 2.0,
+        "target": 60,
+        "tolerance": 35,
+        "weight": 2,
         "critical": true
-      },
-      {
-        "id": "left_wrist_chest",
-        "kind": "distance",
-        "landmarks": [
-          15,
-          12
-        ],
-        "target": 0.46,
-        "tolerance": 0.15,
-        "weight": 1.5
-      },
-      {
-        "id": "right_wrist_chest",
-        "kind": "distance",
-        "landmarks": [
-          16,
-          11
-        ],
-        "target": 0.53,
-        "tolerance": 0.15,
-        "weight": 1.5
       },
       {
         "id": "shoulder_tilt",
@@ -624,9 +576,9 @@ export const SEED_POSES: ReferencePose[] = [
           11,
           12
         ],
-        "target": 0.0,
-        "tolerance": 6.0,
-        "weight": 1.0
+        "target": 0,
+        "tolerance": 10,
+        "weight": 1
       }
     ],
     "landmarks": [
@@ -799,86 +751,70 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": true,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"72.6\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"72.6\" y1=\"99.4\" x2=\"107.6\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"127.4\" y2=\"99.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"99.4\" x2=\"92.4\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"72.6\" cy=\"99.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"99.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"107.6\" cy=\"99.4\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"92.4\" cy=\"102.9\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Arms Crossed</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"64.0\" y2=\"93.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"64.0\" y1=\"93.6\" x2=\"110.0\" y2=\"93.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"136.0\" y2=\"93.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"136.0\" y1=\"93.6\" x2=\"90.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"64.0\" cy=\"93.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"136.0\" cy=\"93.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"110.0\" cy=\"93.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"90.0\" cy=\"98.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Confident Guest</text>\n</svg>"
   },
   {
-    "id": "arms-raised-v",
-    "name": "Arms Raised (V)",
-    "category": "Celebration",
+    "id": "hand-near-chin",
+    "name": "Thoughtful Host / Deep Thinker Reaction",
+    "category": "Podcasting",
     "tags": [
-      "celebration",
-      "victory",
-      "energy",
-      "fitness"
+      "reaction",
+      "thoughtful",
+      "podcasting",
+      "interview",
+      "listening"
     ],
-    "difficulty": "intermediate",
-    "framing": "either",
-    "description": "Dynamic overhead victory pose with both arms extended upwards in an expansive V formation.",
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Attentive podcast interview reaction shot: hand poised near chin/jawline, head slightly tilted in deep listening mode.",
     "instructions": [
-      "Raise both arms overhead into a high V",
-      "Keep elbows straight and fingers open",
-      "Stand tall with torso aligned"
+      "Rest dominant hand lightly near your chin or jawline",
+      "Support elbow on your desk or chair armrest",
+      "Rest opposite arm comfortably on the desk"
     ],
     "requiredLandmarks": [
       11,
       12,
-      13,
       14,
-      15,
-      16,
-      23,
-      24
+      16
     ],
     "features": [
       {
-        "id": "left_arm_elevation",
-        "kind": "angle",
+        "id": "hand_to_chin_distance",
+        "kind": "distance",
         "landmarks": [
-          23,
-          11,
-          13
+          16,
+          0
         ],
-        "target": 135.9,
-        "tolerance": 15.0,
-        "weight": 2.0,
+        "target": 0.2,
+        "tolerance": 0.2,
+        "weight": 2.5,
         "critical": true
       },
       {
-        "id": "right_arm_elevation",
-        "kind": "angle",
-        "landmarks": [
-          24,
-          12,
-          14
-        ],
-        "target": 135.9,
-        "tolerance": 15.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "left_elbow_straight",
-        "kind": "angle",
-        "landmarks": [
-          11,
-          13,
-          15
-        ],
-        "target": 168.5,
-        "tolerance": 15.0,
-        "weight": 1.5
-      },
-      {
-        "id": "right_elbow_straight",
+        "id": "right_elbow_flex",
         "kind": "angle",
         "landmarks": [
           12,
           14,
           16
         ],
-        "target": 168.5,
-        "tolerance": 15.0,
-        "weight": 1.5
+        "target": 7,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "left_arm_relaxed",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 165,
+        "tolerance": 40,
+        "weight": 1
       }
     ],
     "landmarks": [
@@ -948,23 +884,23 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.99
       },
       {
-        "x": 0.28,
-        "y": 0.14,
+        "x": 0.36,
+        "y": 0.38,
         "visibility": 0.98
       },
       {
-        "x": 0.72,
-        "y": 0.14,
+        "x": 0.65,
+        "y": 0.35,
         "visibility": 0.98
       },
       {
-        "x": 0.2,
-        "y": 0.04,
+        "x": 0.35,
+        "y": 0.52,
         "visibility": 0.98
       },
       {
-        "x": 0.8,
-        "y": 0.04,
+        "x": 0.54,
+        "y": 0.17,
         "visibility": 0.98
       },
       {
@@ -1051,32 +987,733 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": true,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"66.6\" y2=\"60.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"66.6\" y1=\"60.6\" x2=\"54.4\" y2=\"43.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"133.4\" y2=\"60.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"133.4\" y1=\"60.6\" x2=\"145.6\" y2=\"43.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"66.6\" cy=\"60.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"133.4\" cy=\"60.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"54.4\" cy=\"43.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"145.6\" cy=\"43.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Arms Raised (V)</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"72.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"72.0\" y1=\"98.8\" x2=\"70.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"130.0\" y2=\"91.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"130.0\" y1=\"91.0\" x2=\"108.0\" y2=\"44.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"72.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"130.0\" cy=\"91.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"70.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"108.0\" cy=\"44.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Thoughtful Host</text>\n</svg>"
   },
   {
-    "id": "one-hand-wave",
-    "name": "One-Hand Wave",
-    "category": "Greeting",
+    "id": "shoulders-angled",
+    "name": "Multi-Camera Studio / 3/4 Interview Angle",
+    "category": "Podcasting",
     "tags": [
-      "greeting",
-      "friendly",
-      "wave",
-      "casual"
+      "interview",
+      "multicam",
+      "profile",
+      "podcasting",
+      "co-host"
+    ],
+    "difficulty": "intermediate",
+    "framing": "upper-body",
+    "description": "Two-camera podcast studio setup: torso angled ~20-30 degrees toward co-host/mic while maintaining eye contact with lens.",
+    "instructions": [
+      "Angle torso ~25 degrees toward side or microphone",
+      "Turn head toward primary camera lens",
+      "Maintain level shoulders and tall posture"
+    ],
+    "requiredLandmarks": [
+      11,
+      12
+    ],
+    "features": [
+      {
+        "id": "shoulder_yaw_proxy",
+        "kind": "distance",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0.52,
+        "tolerance": 0.2,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "head_level",
+        "kind": "tilt",
+        "landmarks": [
+          2,
+          5
+        ],
+        "target": 0,
+        "tolerance": 10,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.58,
+        "y": 0.26,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.42,
+        "y": 0.38,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.42,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.6,
+        "y": 0.54,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"88.0\" y1=\"62.4\" x2=\"116.0\" y2=\"67.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"88.0\" y1=\"62.4\" x2=\"84.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"84.0\" y1=\"98.8\" x2=\"84.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"116.0\" y1=\"67.6\" x2=\"120.0\" y2=\"104.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"104.0\" x2=\"120.0\" y2=\"140.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"88.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"116.0\" y1=\"67.6\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"88.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"116.0\" y2=\"67.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"88.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"116.0\" cy=\"67.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"84.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"104.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"84.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"140.4\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Multi-Camera Studio</text>\n</svg>"
+  },
+  {
+    "id": "hands-on-hips",
+    "name": "Executive Presence / Steepled Hands & Desk Frame",
+    "category": "Solo Creator",
+    "tags": [
+      "authority",
+      "podcasting",
+      "interview",
+      "executive",
+      "gestures"
     ],
     "difficulty": "beginner",
     "framing": "upper-body",
-    "description": "Warm, engaging greeting with right hand raised beside the head in an open wave.",
+    "description": "Authoritative host stance: elbows resting naturally on desk/armrests with hands steepled together in front of lower chest.",
     "instructions": [
-      "Raise right hand beside head to wave",
-      "Bend right elbow at roughly 90 degrees",
-      "Rest left arm comfortably at your side"
+      "Keep spine tall and shoulders level",
+      "Rest elbows comfortably on desk or armrests",
+      "Bring hands together steepled in lower chest frame"
     ],
     "requiredLandmarks": [
       11,
       12,
       13,
+      14
+    ],
+    "features": [
+      {
+        "id": "left_elbow_bend",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 77,
+        "tolerance": 35,
+        "weight": 2
+      },
+      {
+        "id": "right_elbow_bend",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 77,
+        "tolerance": 35,
+        "weight": 2
+      },
+      {
+        "id": "steepled_hands_proximity",
+        "kind": "distance",
+        "landmarks": [
+          15,
+          16
+        ],
+        "target": 0.28,
+        "tolerance": 0.2,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 12,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.36,
+        "y": 0.42,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.64,
+        "y": 0.42,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.46,
+        "y": 0.42,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.54,
+        "y": 0.42,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"72.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"72.0\" y1=\"109.2\" x2=\"92.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"128.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"128.0\" y1=\"109.2\" x2=\"108.0\" y2=\"109.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"72.0\" cy=\"109.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"128.0\" cy=\"109.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"92.0\" cy=\"109.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"108.0\" cy=\"109.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Executive Presence</text>\n</svg>"
+  },
+  {
+    "id": "arms-raised-v",
+    "name": "Engaged Storyteller / Chest-Level Gestures",
+    "category": "Solo Creator",
+    "tags": [
+      "youtube",
+      "gesturing",
+      "storyteller",
+      "expressive",
+      "creator"
+    ],
+    "difficulty": "intermediate",
+    "framing": "upper-body",
+    "description": "Dynamic conversational storytelling: elbows bent near torso with open hands gesturing expressively in front of chest.",
+    "instructions": [
+      "Keep shoulders relaxed and level",
+      "Bend elbows comfortably at lower rib level",
+      "Hold hands open in front of chest as you speak"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
+      13,
+      14
+    ],
+    "features": [
+      {
+        "id": "left_elbow_gesture",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 43,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "right_elbow_gesture",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 43,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
+        "landmarks": [
+          11,
+          12
+        ],
+        "target": 0,
+        "tolerance": 12,
+        "weight": 1.5
+      }
+    ],
+    "landmarks": [
+      {
+        "x": 0.5,
+        "y": 0.12,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.48,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.47,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.46,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.53,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.54,
+        "y": 0.1,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.44,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.56,
+        "y": 0.12,
+        "visibility": 0.85
+      },
+      {
+        "x": 0.48,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.52,
+        "y": 0.15,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.4,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.6,
+        "y": 0.24,
+        "visibility": 0.99
+      },
+      {
+        "x": 0.35,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.65,
+        "y": 0.4,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.42,
+        "y": 0.36,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.58,
+        "y": 0.36,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.34,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.54,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.34,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.66,
+        "y": 0.55,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.35,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.65,
+        "y": 0.53,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.57,
+        "y": 0.52,
+        "visibility": 0.98
+      },
+      {
+        "x": 0.43,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.57,
+        "y": 0.72,
+        "visibility": 0.96
+      },
+      {
+        "x": 0.43,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.57,
+        "y": 0.92,
+        "visibility": 0.95
+      },
+      {
+        "x": 0.42,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.58,
+        "y": 0.95,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.43,
+        "y": 0.96,
+        "visibility": 0.9
+      },
+      {
+        "x": 0.57,
+        "y": 0.96,
+        "visibility": 0.9
+      }
+    ],
+    "mirrorAllowed": true,
+    "source": "authored",
+    "reviewed": false,
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"70.0\" y2=\"104.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"70.0\" y1=\"104.0\" x2=\"84.0\" y2=\"93.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"130.0\" y2=\"104.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"130.0\" y1=\"104.0\" x2=\"116.0\" y2=\"93.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"70.0\" cy=\"104.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"130.0\" cy=\"104.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"84.0\" cy=\"93.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"116.0\" cy=\"93.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Engaged Storyteller</text>\n</svg>"
+  },
+  {
+    "id": "one-hand-wave",
+    "name": "Welcoming Intro / Friendly Wave",
+    "category": "Solo Creator",
+    "tags": [
+      "intro",
+      "greeting",
+      "creator",
+      "youtube",
+      "wave"
+    ],
+    "difficulty": "beginner",
+    "framing": "upper-body",
+    "description": "Signature video greeting or stream intro: dominant hand raised beside ear with opposite arm relaxed.",
+    "instructions": [
+      "Elevate dominant hand beside ear level (like waving hello)",
+      "Maintain elbow flexion at approximately 90-110 degrees",
+      "Rest opposite arm relaxed at your side"
+    ],
+    "requiredLandmarks": [
+      11,
+      12,
       14,
-      15,
       16
     ],
     "features": [
@@ -1088,20 +1725,21 @@ export const SEED_POSES: ReferencePose[] = [
           14,
           16
         ],
-        "target": 113.5,
-        "tolerance": 16.0,
-        "weight": 2.0,
+        "target": 120,
+        "tolerance": 35,
+        "weight": 2,
         "critical": true
       },
       {
         "id": "right_hand_height",
         "kind": "position",
         "landmarks": [
-          16
+          16,
+          12
         ],
-        "target": 0.1,
-        "tolerance": 0.14,
-        "weight": 2.0,
+        "target": -0.1,
+        "tolerance": 0.22,
+        "weight": 2,
         "critical": true
       },
       {
@@ -1112,9 +1750,9 @@ export const SEED_POSES: ReferencePose[] = [
           13,
           15
         ],
-        "target": 168.1,
-        "tolerance": 16.0,
-        "weight": 1.0
+        "target": 165,
+        "tolerance": 40,
+        "weight": 1
       }
     ],
     "landmarks": [
@@ -1287,56 +1925,70 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": true,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"127.4\" y2=\"74.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"74.7\" x2=\"130.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"74.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"130.4\" cy=\"53.6\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">One-Hand Wave</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"72.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"72.0\" y1=\"98.8\" x2=\"70.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"136.0\" y2=\"57.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"136.0\" y1=\"57.2\" x2=\"140.0\" y2=\"26.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"62.4\" x2=\"86.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"62.4\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"135.2\" x2=\"114.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"72.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"136.0\" cy=\"57.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"70.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"140.0\" cy=\"26.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Welcoming Intro</text>\n</svg>"
   },
   {
-    "id": "shoulders-angled",
-    "name": "Shoulders Angled Portrait",
-    "category": "Portrait",
+    "id": "warrior-two-pose",
+    "name": "Open Palms / Warm Video Greeting",
+    "category": "Solo Creator",
     "tags": [
-      "portrait",
-      "editorial",
-      "angle",
-      "headshot"
+      "welcome",
+      "open-palms",
+      "creator",
+      "youtube",
+      "intro"
     ],
     "difficulty": "beginner",
     "framing": "upper-body",
-    "description": "Slimming portrait posture with torso turned at a 30-degree angle while head faces camera.",
+    "description": "Open, welcoming presenter stance: both palms open at chest level facing camera with relaxed, level shoulders.",
     "instructions": [
-      "Turn torso 30 degrees to your side",
-      "Turn head forward facing the camera directly",
-      "Maintain upright spine posture"
+      "Keep spine tall and shoulders level",
+      "Rest elbows near your sides",
+      "Hold open palms facing camera at chest level"
     ],
     "requiredLandmarks": [
-      0,
       11,
       12,
-      23,
-      24
+      13,
+      14
     ],
     "features": [
       {
-        "id": "shoulder_yaw_proxy",
-        "kind": "distance",
+        "id": "left_elbow_open",
+        "kind": "angle",
+        "landmarks": [
+          11,
+          13,
+          15
+        ],
+        "target": 48,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "right_elbow_open",
+        "kind": "angle",
+        "landmarks": [
+          12,
+          14,
+          16
+        ],
+        "target": 48,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
+      },
+      {
+        "id": "shoulder_level",
+        "kind": "tilt",
         "landmarks": [
           11,
           12
         ],
-        "target": 0.52,
-        "tolerance": 0.08,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "head_level",
-        "kind": "tilt",
-        "landmarks": [
-          0,
-          11
-        ],
-        "target": 63.4,
-        "tolerance": 8.0,
-        "weight": 1.0
+        "target": 0,
+        "tolerance": 10,
+        "weight": 1.5
       }
     ],
     "landmarks": [
@@ -1396,8 +2048,8 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.9
       },
       {
-        "x": 0.44,
-        "y": 0.24,
+        "x": 0.42,
+        "y": 0.26,
         "visibility": 0.99
       },
       {
@@ -1406,23 +2058,23 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.99
       },
       {
-        "x": 0.42,
+        "x": 0.34,
         "y": 0.38,
         "visibility": 0.98
       },
       {
-        "x": 0.6,
-        "y": 0.4,
+        "x": 0.66,
+        "y": 0.38,
         "visibility": 0.98
       },
       {
-        "x": 0.42,
-        "y": 0.52,
+        "x": 0.32,
+        "y": 0.3,
         "visibility": 0.98
       },
       {
-        "x": 0.6,
-        "y": 0.54,
+        "x": 0.68,
+        "y": 0.3,
         "visibility": 0.98
       },
       {
@@ -1456,33 +2108,33 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.9
       },
       {
-        "x": 0.43,
-        "y": 0.52,
+        "x": 0.44,
+        "y": 0.54,
         "visibility": 0.98
       },
       {
-        "x": 0.57,
-        "y": 0.52,
+        "x": 0.56,
+        "y": 0.54,
         "visibility": 0.98
       },
       {
-        "x": 0.43,
-        "y": 0.72,
+        "x": 0.34,
+        "y": 0.7,
         "visibility": 0.96
       },
       {
-        "x": 0.57,
-        "y": 0.72,
+        "x": 0.68,
+        "y": 0.7,
         "visibility": 0.96
       },
       {
-        "x": 0.43,
-        "y": 0.92,
+        "x": 0.34,
+        "y": 0.9,
         "visibility": 0.95
       },
       {
-        "x": 0.57,
-        "y": 0.92,
+        "x": 0.78,
+        "y": 0.9,
         "visibility": 0.95
       },
       {
@@ -1509,306 +2161,56 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": true,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"112.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"87.8\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"102.9\" x2=\"87.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"115.2\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"106.4\" x2=\"115.2\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"90.9\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"131.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Shoulders Angled Portrait</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"84.0\" y1=\"67.6\" x2=\"116.0\" y2=\"67.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"84.0\" y1=\"67.6\" x2=\"68.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"68.0\" y1=\"98.8\" x2=\"64.0\" y2=\"78.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"116.0\" y1=\"67.6\" x2=\"132.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"132.0\" y1=\"98.8\" x2=\"136.0\" y2=\"78.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"84.0\" y1=\"67.6\" x2=\"88.0\" y2=\"140.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"116.0\" y1=\"67.6\" x2=\"112.0\" y2=\"140.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"88.0\" y1=\"140.4\" x2=\"112.0\" y2=\"140.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"84.0\" y2=\"67.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"116.0\" y2=\"67.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"84.0\" cy=\"67.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"116.0\" cy=\"67.6\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"68.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"132.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"64.0\" cy=\"78.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"136.0\" cy=\"78.0\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"88.0\" cy=\"140.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"112.0\" cy=\"140.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Open Palms</text>\n</svg>"
   },
   {
-    "id": "hand-near-chin",
-    "name": "Hand Near Chin",
-    "category": "Thoughtful",
+    "id": "weight-shift",
+    "name": "Casual Streamer / Asymmetric Desk Lean",
+    "category": "Streaming",
     "tags": [
-      "thoughtful",
-      "editorial",
-      "chin",
-      "thinker"
+      "streaming",
+      "twitch",
+      "casual",
+      "lean",
+      "conversational"
     ],
-    "difficulty": "intermediate",
+    "difficulty": "beginner",
     "framing": "upper-body",
-    "description": "Contemplative editorial pose with one hand lightly touching or gesturing near jawline.",
+    "description": "Natural relaxed streaming poise: resting on one armrest with subtle natural tilt without slouching.",
     "instructions": [
-      "Bring right hand lightly toward your chin/jaw",
-      "Keep elbow tucked close to your torso",
-      "Relax your neck and shoulders"
+      "Rest one elbow comfortably on your desk or armrest",
+      "Allow a subtle natural lean (~5-8 degrees) toward resting side",
+      "Keep chest open and spine elongated"
     ],
     "requiredLandmarks": [
-      0,
       11,
       12,
-      14,
-      16
+      13,
+      14
     ],
     "features": [
       {
-        "id": "hand_to_chin_distance",
-        "kind": "distance",
+        "id": "shoulder_tilt",
+        "kind": "tilt",
         "landmarks": [
-          16,
-          0
+          11,
+          12
         ],
-        "target": 0.2,
-        "tolerance": 0.09,
-        "weight": 2.0,
+        "target": 5.7,
+        "tolerance": 8,
+        "weight": 2,
         "critical": true
       },
       {
-        "id": "right_elbow_flex",
-        "kind": "angle",
-        "landmarks": [
-          12,
-          14,
-          16
-        ],
-        "target": 12.5,
-        "tolerance": 15.0,
-        "weight": 1.5
-      },
-      {
-        "id": "left_arm_relaxed",
+        "id": "left_elbow_support",
         "kind": "angle",
         "landmarks": [
           11,
           13,
           15
         ],
-        "target": 168.1,
-        "tolerance": 16.0,
-        "weight": 1.0
-      }
-    ],
-    "landmarks": [
-      {
-        "x": 0.5,
-        "y": 0.12,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.48,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.47,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.46,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.53,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.54,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.56,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.48,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.4,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.6,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.36,
-        "y": 0.38,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.62,
-        "y": 0.32,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.35,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.54,
-        "y": 0.16,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.34,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.35,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.65,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.57,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.43,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.57,
-        "y": 0.72,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.43,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.57,
-        "y": 0.92,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.42,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.58,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.96,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.57,
-        "y": 0.96,
-        "visibility": 0.9
-      }
-    ],
-    "mirrorAllowed": true,
-    "source": "authored",
-    "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"118.2\" y2=\"92.3\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"118.2\" y1=\"92.3\" x2=\"106.1\" y2=\"64.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"110.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"127.5\" x2=\"89.4\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"162.7\" x2=\"89.4\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"127.5\" x2=\"110.6\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"162.7\" x2=\"110.6\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"118.2\" cy=\"92.3\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"106.1\" cy=\"64.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Hand Near Chin</text>\n</svg>"
-  },
-  {
-    "id": "weight-shift",
-    "name": "Weight Shift",
-    "category": "Fashion",
-    "tags": [
-      "fashion",
-      "full-body",
-      "casual",
-      "dynamic"
-    ],
-    "difficulty": "intermediate",
-    "framing": "full-body",
-    "description": "Casual fashion stance with body weight shifted onto one support leg and slight hip angle.",
-    "instructions": [
-      "Shift body weight firmly onto right leg",
-      "Allow left knee to soften slightly",
-      "Drop left hip slightly for natural stance"
-    ],
-    "requiredLandmarks": [
-      11,
-      12,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28
-    ],
-    "features": [
-      {
-        "id": "hip_tilt",
-        "kind": "tilt",
-        "landmarks": [
-          23,
-          24
-        ],
-        "target": 12.1,
-        "tolerance": 4.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "right_support_leg",
-        "kind": "angle",
-        "landmarks": [
-          24,
-          26,
-          28
-        ],
-        "target": 177.3,
-        "tolerance": 8.0,
-        "weight": 1.5
-      },
-      {
-        "id": "left_relaxed_knee",
-        "kind": "angle",
-        "landmarks": [
-          23,
-          25,
-          27
-        ],
-        "target": 176.9,
-        "tolerance": 12.0,
+        "target": 68,
+        "tolerance": 35,
         "weight": 1.5
       }
     ],
@@ -1870,16 +2272,16 @@ export const SEED_POSES: ReferencePose[] = [
       },
       {
         "x": 0.4,
-        "y": 0.24,
+        "y": 0.255,
         "visibility": 0.99
       },
       {
         "x": 0.6,
-        "y": 0.24,
+        "y": 0.235,
         "visibility": 0.99
       },
       {
-        "x": 0.36,
+        "x": 0.35,
         "y": 0.38,
         "visibility": 0.98
       },
@@ -1889,9 +2291,9 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.98
       },
       {
-        "x": 0.35,
-        "y": 0.52,
-        "visibility": 0.98
+        "x": 0.42,
+        "y": 0.38,
+        "visibility": 0.95
       },
       {
         "x": 0.65,
@@ -1982,60 +2384,59 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": true,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"102.9\" x2=\"77.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"102.9\" x2=\"122.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"129.3\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"129.3\" x2=\"110.6\" y2=\"124.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"129.3\" x2=\"86.3\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"86.3\" y1=\"162.7\" x2=\"84.8\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"124.0\" x2=\"112.2\" y2=\"161.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"161.0\" x2=\"112.2\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"77.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"122.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"129.3\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"124.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"161.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Weight Shift</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"80.0\" y1=\"66.3\" x2=\"120.0\" y2=\"61.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"66.3\" x2=\"70.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"70.0\" y1=\"98.8\" x2=\"84.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"61.1\" x2=\"128.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"128.0\" y1=\"98.8\" x2=\"130.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"80.0\" y1=\"66.3\" x2=\"86.0\" y2=\"137.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"120.0\" y1=\"61.1\" x2=\"114.0\" y2=\"130.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"86.0\" y1=\"137.8\" x2=\"114.0\" y2=\"130.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"80.0\" y2=\"66.3\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"31.2\" x2=\"120.0\" y2=\"61.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"80.0\" cy=\"66.3\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"61.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"70.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"128.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"84.0\" cy=\"98.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"130.0\" cy=\"135.2\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"86.0\" cy=\"137.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"114.0\" cy=\"130.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Casual Streamer</text>\n</svg>"
   },
   {
     "id": "side-facing",
-    "name": "Side-Facing Profile",
-    "category": "Fitness / Form",
+    "name": "Key Point Emphasis / Hand Forward Gesture",
+    "category": "Solo Creator",
     "tags": [
-      "side-profile",
-      "form",
-      "fitness",
-      "alignment"
+      "emphasis",
+      "keypoint",
+      "gesture",
+      "creator",
+      "youtube"
     ],
     "difficulty": "intermediate",
-    "framing": "either",
+    "framing": "upper-body",
     "experimental": true,
-    "description": "Sagittal alignment view showing spinal curve and lateral posture. Experimental due to 2D self-occlusion.",
+    "description": "Key takeaway gesture: dominant hand extended forward toward viewer at mid-chest height to underscore an important point.",
     "instructions": [
-      "Turn 90 degrees to face sideways",
-      "Stand tall with spine erect",
-      "Keep hands resting along outer thigh"
+      "Extend dominant hand forward at mid-chest height",
+      "Keep fingers open in an expressive gesture toward camera",
+      "Lock eye contact directly on the lens"
     ],
     "requiredLandmarks": [
+      11,
       12,
       14,
-      16,
-      24,
-      26,
-      28
+      16
     ],
     "features": [
       {
-        "id": "lateral_spine_align",
-        "kind": "angle",
+        "id": "right_hand_forward_height",
+        "kind": "position",
         "landmarks": [
-          12,
-          24,
-          26
+          16,
+          12
         ],
-        "target": 177.1,
-        "tolerance": 10.0,
-        "weight": 2.0,
+        "target": 0.05,
+        "tolerance": 0.2,
+        "weight": 2,
         "critical": true
       },
       {
-        "id": "knee_alignment",
+        "id": "right_elbow_gesture",
         "kind": "angle",
         "landmarks": [
-          24,
-          26,
-          28
+          12,
+          14,
+          16
         ],
-        "target": 180.0,
-        "tolerance": 10.0,
-        "weight": 1.5
+        "target": 21,
+        "tolerance": 35,
+        "weight": 2,
+        "critical": true
       }
     ],
     "landmarks": [
@@ -2110,7 +2511,7 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.3
       },
       {
-        "x": 0.52,
+        "x": 0.64,
         "y": 0.38,
         "visibility": 0.98
       },
@@ -2120,8 +2521,8 @@ export const SEED_POSES: ReferencePose[] = [
         "visibility": 0.3
       },
       {
-        "x": 0.53,
-        "y": 0.52,
+        "x": 0.6,
+        "y": 0.29,
         "visibility": 0.98
       },
       {
@@ -2208,487 +2609,6 @@ export const SEED_POSES: ReferencePose[] = [
     "mirrorAllowed": false,
     "source": "authored",
     "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"112.2\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"78.2\" x2=\"103.0\" y2=\"102.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"102.9\" x2=\"104.6\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"78.2\" x2=\"100.0\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"127.5\" x2=\"101.5\" y2=\"162.7\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"101.5\" y1=\"162.7\" x2=\"103.0\" y2=\"197.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"112.2\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"100.0\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"103.0\" cy=\"102.9\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"104.6\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"100.0\" cy=\"127.5\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"101.5\" cy=\"162.7\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"103.0\" cy=\"197.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Side-Facing Profile</text>\n</svg>"
-  },
-  {
-    "id": "seated-relaxed",
-    "name": "Seated Relaxed",
-    "category": "Seated",
-    "tags": [
-      "seated",
-      "desk",
-      "relaxed",
-      "interview"
-    ],
-    "difficulty": "intermediate",
-    "framing": "upper-body",
-    "experimental": true,
-    "description": "Ergonomic seated position with back supported and hands resting forward. Experimental for desk cams.",
-    "instructions": [
-      "Sit upright with back straight",
-      "Rest hands gently on thighs or desk",
-      "Keep shoulders level and relaxed"
-    ],
-    "requiredLandmarks": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      23,
-      24
-    ],
-    "features": [
-      {
-        "id": "torso_upright",
-        "kind": "tilt",
-        "landmarks": [
-          11,
-          23
-        ],
-        "target": 85.0,
-        "tolerance": 8.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "shoulder_level",
-        "kind": "tilt",
-        "landmarks": [
-          11,
-          12
-        ],
-        "target": 0.0,
-        "tolerance": 5.0,
-        "weight": 1.5
-      },
-      {
-        "id": "hands_forward",
-        "kind": "angle",
-        "landmarks": [
-          11,
-          13,
-          15
-        ],
-        "target": 147.5,
-        "tolerance": 18.0,
-        "weight": 1.0
-      }
-    ],
-    "landmarks": [
-      {
-        "x": 0.5,
-        "y": 0.12,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.48,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.47,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.46,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.53,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.54,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.56,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.48,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.4,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.6,
-        "y": 0.24,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.36,
-        "y": 0.4,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.64,
-        "y": 0.4,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.4,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.6,
-        "y": 0.52,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.34,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.35,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.65,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.58,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.57,
-        "y": 0.58,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.41,
-        "y": 0.7,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.59,
-        "y": 0.7,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.41,
-        "y": 0.88,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.59,
-        "y": 0.88,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.42,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.58,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.96,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.57,
-        "y": 0.96,
-        "visibility": 0.9
-      }
-    ],
-    "mirrorAllowed": true,
-    "source": "authored",
-    "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"115.2\" y2=\"78.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"78.7\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"78.7\" y1=\"106.4\" x2=\"84.8\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"121.3\" y2=\"106.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"121.3\" y1=\"106.4\" x2=\"115.2\" y2=\"127.5\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"84.8\" y1=\"78.2\" x2=\"89.4\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"115.2\" y1=\"78.2\" x2=\"110.6\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"138.1\" x2=\"110.6\" y2=\"138.1\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"89.4\" y1=\"138.1\" x2=\"86.3\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"86.3\" y1=\"159.2\" x2=\"86.3\" y2=\"190.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"110.6\" y1=\"138.1\" x2=\"113.7\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"113.7\" y1=\"159.2\" x2=\"113.7\" y2=\"190.9\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"78.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"78.7\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"121.3\" cy=\"106.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"84.8\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"115.2\" cy=\"127.5\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"89.4\" cy=\"138.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"110.6\" cy=\"138.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"113.7\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"86.3\" cy=\"190.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"113.7\" cy=\"190.9\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Seated Relaxed</text>\n</svg>"
-  },
-  {
-    "id": "warrior-two-pose",
-    "name": "Warrior Pose",
-    "category": "Yoga / Athletic",
-    "tags": [
-      "yoga",
-      "athletic",
-      "warrior",
-      "full-body"
-    ],
-    "difficulty": "advanced",
-    "framing": "full-body",
-    "description": "Strong athletic warrior stance with arms stretched horizontally, lead knee bent, and wide base.",
-    "instructions": [
-      "Stretch both arms parallel to the floor",
-      "Bend front knee toward 90 degrees",
-      "Keep back leg straight and torso upright"
-    ],
-    "requiredLandmarks": [
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      23,
-      24,
-      25,
-      26,
-      27,
-      28
-    ],
-    "features": [
-      {
-        "id": "arms_horizontal",
-        "kind": "tilt",
-        "landmarks": [
-          15,
-          16
-        ],
-        "target": 0.0,
-        "tolerance": 8.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "front_knee_bend",
-        "kind": "angle",
-        "landmarks": [
-          23,
-          25,
-          27
-        ],
-        "target": 148.0,
-        "tolerance": 15.0,
-        "weight": 2.0,
-        "critical": true
-      },
-      {
-        "id": "back_leg_straight",
-        "kind": "angle",
-        "landmarks": [
-          24,
-          26,
-          28
-        ],
-        "target": 169.7,
-        "tolerance": 10.0,
-        "weight": 1.5
-      }
-    ],
-    "landmarks": [
-      {
-        "x": 0.5,
-        "y": 0.12,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.48,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.47,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.46,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.53,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.54,
-        "y": 0.1,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.56,
-        "y": 0.12,
-        "visibility": 0.85
-      },
-      {
-        "x": 0.48,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.52,
-        "y": 0.15,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.42,
-        "y": 0.26,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.58,
-        "y": 0.26,
-        "visibility": 0.99
-      },
-      {
-        "x": 0.26,
-        "y": 0.26,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.74,
-        "y": 0.26,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.12,
-        "y": 0.26,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.88,
-        "y": 0.26,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.54,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.34,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.66,
-        "y": 0.55,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.35,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.65,
-        "y": 0.53,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.44,
-        "y": 0.54,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.56,
-        "y": 0.54,
-        "visibility": 0.98
-      },
-      {
-        "x": 0.34,
-        "y": 0.7,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.68,
-        "y": 0.7,
-        "visibility": 0.96
-      },
-      {
-        "x": 0.34,
-        "y": 0.9,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.78,
-        "y": 0.9,
-        "visibility": 0.95
-      },
-      {
-        "x": 0.42,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.58,
-        "y": 0.95,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.43,
-        "y": 0.96,
-        "visibility": 0.9
-      },
-      {
-        "x": 0.57,
-        "y": 0.96,
-        "visibility": 0.9
-      }
-    ],
-    "mirrorAllowed": true,
-    "source": "authored",
-    "reviewed": false,
-    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"57.1\" x2=\"97.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"100.0\" y1=\"57.1\" x2=\"103.0\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"97.0\" y1=\"53.6\" x2=\"95.4\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"95.4\" y1=\"53.6\" x2=\"93.9\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"103.0\" y1=\"53.6\" x2=\"104.6\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"104.6\" y1=\"53.6\" x2=\"106.1\" y2=\"53.6\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"112.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"63.5\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"63.5\" y1=\"81.8\" x2=\"42.2\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"136.5\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"136.5\" y1=\"81.8\" x2=\"157.8\" y2=\"81.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"87.8\" y1=\"81.8\" x2=\"90.9\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"112.2\" y1=\"81.8\" x2=\"109.1\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"131.0\" x2=\"109.1\" y2=\"131.0\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"90.9\" y1=\"131.0\" x2=\"75.7\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"75.7\" y1=\"159.2\" x2=\"75.7\" y2=\"194.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"109.1\" y1=\"131.0\" x2=\"127.4\" y2=\"159.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" /><line x1=\"127.4\" y1=\"159.2\" x2=\"142.6\" y2=\"194.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"100.0\" cy=\"57.1\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"87.8\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"112.2\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"63.5\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"136.5\" cy=\"81.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"42.2\" cy=\"81.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"157.8\" cy=\"81.8\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"90.9\" cy=\"131.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"109.1\" cy=\"131.0\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"75.7\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"127.4\" cy=\"159.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"75.7\" cy=\"194.4\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" /><circle cx=\"142.6\" cy=\"194.4\" r=\"4.0\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Warrior Pose</text>\n</svg>"
+    "thumbnail": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 200 260\" width=\"100%\" height=\"100%\" style=\"background:#16382D;border-radius:12px;\">\n  <rect width=\"200\" height=\"260\" rx=\"12\" fill=\"#16382D\" stroke=\"rgba(244,246,244,0.12)\" stroke-width=\"1\"/>\n  <g class=\"skeleton\">\n    <line x1=\"100.0\" y1=\"62.4\" x2=\"128.0\" y2=\"98.8\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"128.0\" y1=\"98.8\" x2=\"120.0\" y2=\"75.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"100.0\" y1=\"62.4\" x2=\"100.0\" y2=\"135.2\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <line x1=\"116.0\" y1=\"31.2\" x2=\"100.0\" y2=\"62.4\" stroke=\"#C5A059\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.85\" />\n    <circle cx=\"116.0\" cy=\"31.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"100.0\" cy=\"62.4\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"128.0\" cy=\"98.8\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"120.0\" cy=\"75.4\" r=\"4.0\" fill=\"#5EEAD4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n    <circle cx=\"100.0\" cy=\"135.2\" r=\"3.5\" fill=\"#F4F6F4\" stroke=\"#0F251E\" stroke-width=\"1.2\" />\n  </g>\n  <text x=\"100.0\" y=\"246\" text-anchor=\"middle\" fill=\"#F4F6F4\" font-family=\"Inter, sans-serif\" font-size=\"11\" font-weight=\"500\" letter-spacing=\"0.2\">Key Point Emphasis</text>\n</svg>"
   }
 ];

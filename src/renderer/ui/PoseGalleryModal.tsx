@@ -39,8 +39,8 @@ export const PoseGalleryModal: React.FC<PoseGalleryModalProps> = ({
         {/* Header */}
         <div className="p-4 border-b border-[#F4F6F4]/10 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-[#F4F6F4]">Pose Library</h2>
-            <p className="text-xs text-[#94A39E]">Select a reference target pose for live coaching</p>
+            <h2 className="text-lg font-semibold text-[#F4F6F4]">Exercise & Pose Library</h2>
+            <p className="text-xs text-[#94A39E]">Select a therapeutic exercise or postural assessment form</p>
           </div>
           <button
             onClick={onClose}

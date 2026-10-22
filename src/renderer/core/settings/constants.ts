@@ -22,43 +22,44 @@ export const INFERENCE_CONFIG = {
   WARNING_RATE_HZ: 15,
   P95_BUDGET_MS: 50,
   DEGRADE_AFTER_MISS_MS: 5000,
-  RECOVER_AFTER_HEALTHY_MS: 10000,
+  RECOVER_AFTER_HEALTHY_MS: 3000,
   PRIMARY_MODEL: 'pose_landmarker_full.task',
   FALLBACK_MODEL: 'pose_landmarker_lite.task',
   WASM_PATH: '/wasm',
 } as const;
 
 export const FILTER_CONFIG = {
-  VISIBILITY_THRESHOLD: 0.5,
-  ONE_EURO_MIN_CUTOFF: 1.0,  // Hz
-  ONE_EURO_BETA: 0.007,
-  ONE_EURO_D_CUTOFF: 1.0,    // Hz
-  EMA_ALPHA: 0.6,
+  VISIBILITY_THRESHOLD: 0.40,
+  ONE_EURO_MIN_CUTOFF: 0.35,  // Hz: strongly suppresses stationary micro-tremor and webcam pixel noise
+  ONE_EURO_BETA: 0.015,       // Speed coefficient: dynamically raises cutoff during movement to prevent lag
+  ONE_EURO_D_CUTOFF: 1.0,     // Hz
+  EMA_ALPHA: 0.4,
   DISAPPEAR_FADE_MS: 300,
   RESET_AFTER_ABSENT_MS: 500,
-  EASE_TIME_CONSTANT_MS: 100, // rAF interpolation smoothing
+  EASE_TIME_CONSTANT_MS: 80,  // rAF interpolation smoothing
 } as const;
 
 export const MATCHING_THRESHOLDS = {
-  // Score thresholds
-  MATCH_SCORE_THRESHOLD: 85.0,     // Match achieved when score >= 85
-  MATCH_HYSTERESIS_EXIT_SCORE: 75.0, // Match lost when score < 75
+  // Score thresholds (calibrated for natural human biomechanical compliance)
+  MATCH_SCORE_THRESHOLD: 80.0,     // Match achieved when overall score >= 80%
+  MATCH_HYSTERESIS_EXIT_SCORE: 72.0, // Match lost only when score drops below 72%
   
   // Tolerance ratios (r = |delta| / tolerance)
-  MAX_CRITICAL_R_FOR_MATCH: 1.5,
-  MAX_CRITICAL_R_EXIT_HYSTERESIS: 2.0,
+  MAX_CRITICAL_R_FOR_MATCH: 1.6,
+  MAX_CRITICAL_R_EXIT_HYSTERESIS: 2.2,
   
-  // Hold timing
-  HOLD_DURATION_MS: 1500,          // 1.5s stable hold to complete match
-  EXIT_HYSTERESIS_DURATION_MS: 500, // 0.5s out-of-tolerance before exiting matched state
+  // Hold timing & Grace Buffer against single-frame webcam sensor noise
+  HOLD_DURATION_MS: 1500,          // 1.5s hold to complete match
+  HOLD_GRACE_PERIOD_MS: 500,       // 0.5s grace period: transient single-frame dips pause rather than reset timer
+  EXIT_HYSTERESIS_DURATION_MS: 600, // 0.6s out-of-tolerance before exiting matched state
 
   // Weight thresholds
-  MIN_REQUIRED_WEIGHT_COVERAGE_RATIO: 0.70, // 70% of required weight must pass visibility
+  MIN_REQUIRED_WEIGHT_COVERAGE_RATIO: 0.55, // 55% of required feature weight visible (supports seated/desk webcam occlusion)
 
   // Baseline default tolerances
-  DEFAULT_ANGLE_TOLERANCE_DEG: 12.0,
-  DEFAULT_POSITION_TOLERANCE_NORM: 0.12,
-  DEFAULT_TILT_TOLERANCE_DEG: 5.0,
+  DEFAULT_ANGLE_TOLERANCE_DEG: 14.0,
+  DEFAULT_POSITION_TOLERANCE_NORM: 0.15,
+  DEFAULT_TILT_TOLERANCE_DEG: 7.0,
 
   // Weights
   WEIGHT_CRITICAL: 2.0,
