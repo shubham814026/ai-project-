@@ -22,9 +22,9 @@ Traditional webcam pose estimation tools frequently suffer from two critical pit
 ## 🚀 Key Technical Capabilities
 
 - **Dual-Engine Architecture:**
-  - **Engine 1 (Composition Analyzer):** Real-time evaluation of crown headroom ratio ($y_{\text{crown}} / H$), center offset ($|x_{\text{mid}} - 0.5|$), and eye-line alignment to the upper third ($y = 0.333$).
+  - **Engine 1 (Composition Analyzer):** Real-time evaluation of crown headroom ratio (`y_crown / H`), center offset (`|x_mid - 0.5|`), and eye-line alignment to the upper third (`y = 0.333`).
   - **Engine 2 (Kinematic Matcher):** Scale- and translation-invariant joint angle modeling, lateral roll tilt, and Lorentzian penalty scoring.
-- **Robust 3D Slouch Detection:** Couples camera headroom ($y_{\text{crown}} > 0.235$) with kinematic alignment to prevent false matches when a user slumps into their chair.
+- **Robust 3D Slouch Detection:** Couples camera headroom (`y_crown > 0.235`) with kinematic alignment to prevent false matches when a user slumps into their chair.
 - **Strict Face Occlusion Protection:** Algorithmic guarantee that visual correction arrows and skeletal overlay lines are never drawn over facial landmarks (0–10). Head and spine guidance is delivered strictly via floating HUD banners and spoken audio.
 - **Autonomous AI Auto-Shutter:** Temporal hysteresis with a 1.5-second hold progress ring, firing automatic headshots into a local gallery upon verified alignment.
 - **Native Windows & Electron PNG Persistence:** Custom Electron IPC channel (`save-snapshot`) saving high-resolution captures directly to the Windows `Downloads` folder, eliminating Windows `.tmp` download errors.
@@ -135,41 +135,95 @@ ai-project-/
 ## 📐 Mathematical Formulation & Core Algorithms
 
 ### 1. Scale-Invariant Kinematic Manifold
-Raw landmark coordinates $\mathbf{p} = (x, y, z)$ fluctuate with user height, camera focal length, and distance from the lens. DirectAI Studio maps keypoints into a scale- and translation-invariant coordinate space anchored at the mid-shoulder point:
-$$\mathbf{p}_{\text{norm}} = \frac{\mathbf{p} - \mathbf{p}_{\text{mid\_shoulder}}}{\|\mathbf{p}_{\text{left\_shoulder}} - \mathbf{p}_{\text{right\_shoulder}}\|}$$
+
+Raw landmark coordinates $\mathbf{p} = (x, y, z)$ fluctuate with user height, camera focal length, and distance from the lens. DirectAI Studio maps keypoints into a scale- and translation-invariant coordinate space anchored at the mid-shoulder center:
+
+$$
+\mathbf{p}_{\text{norm}} = \frac{\mathbf{p} - \mathbf{p}_{\text{mid}}}{\|\mathbf{p}_{\text{left}} - \mathbf{p}_{\text{right}}\|}
+$$
 
 Limb kinematics are represented as 16 directional joint angles $\theta_j$ using the dot-product cosine metric:
-$$\theta_j = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \|\vec{v}\|}\right)$$
-This representation guarantees $100\%$ invariance to camera zoom, user proportions, and horizontal framing position.
+
+$$
+\theta_j = \arccos\left(\frac{\vec{u} \cdot \vec{v}}{\|\vec{u}\| \|\vec{v}\|}\right)
+$$
+
+This representation guarantees 100% invariance to camera zoom, user proportions, and horizontal framing position.
+
+---
 
 ### 2. Continuous Cauchy / Lorentzian Loss Heuristic
+
 Traditional threshold matching causes jarring step-function score jumps when a limb crosses an arbitrary boundary. We model joint alignment as a continuous Cauchy (Lorentzian) distribution:
-$$s_i(\theta_i) = \frac{1}{1 + \left(\frac{|\theta_i - \theta_i^*|}{\tau_i}\right)^2}$$
-where $\theta_i^*$ is the reference target angle, and $\tau_i$ is the joint-specific tolerance threshold ($15^\circ$ for elbows/knees, $12^\circ$ for spine/torso alignment).
+
+$$
+s_i(\theta_i) = \frac{1}{1 + \left(\frac{|\theta_i - \theta_i^*|}{\tau_i}\right)^2}
+$$
+
+where $\theta_i^*$ is the reference target angle, and $\tau_i$ is the joint-specific tolerance threshold ($15^\circ$ for elbows and knees, $12^\circ$ for spine and torso alignment).
 
 The overall kinematic posture score is computed as a weighted combination across active joints:
-$$S_{\text{pose}} = \frac{\sum_{i=1}^{M} w_i \cdot s_i(\theta_i)}{\sum_{i=1}^{M} w_i} \times 100\%$$
+
+$$
+S_{\text{pose}} = \left( \frac{\sum_{i=1}^{M} w_i \cdot s_i(\theta_i)}{\sum_{i=1}^{M} w_i} \right) \times 100
+$$
+
+---
 
 ### 3. Hierarchical Slouch Prevention & Framing Constraint
+
 Webcams often frame only the upper chest and head, where forward slouching can falsely mimic an upright posture in 2D angle space. To resolve this ambiguity, DirectAI Studio tightly couples Engine 1's crown headroom metric with Engine 2's kinematic scorer:
-$$H_r = \frac{y_{\text{crown}}}{H_{\text{frame}}}$$
-$$\text{IF } H_r > 0.235 \land \text{Target} = \text{"creator-upright"} \implies \begin{cases} \text{Penalty: } -30\% \\ \text{Cap: } S_{\text{pose}} \le 65\% \\ \text{Instruction: } \text{"Sit taller: spine slouched"} \end{cases}$$
-This multi-objective constraint ensures that slouching immediately voids snapshot eligibility.
+
+$$
+H_r = \frac{y_{\text{crown}}}{H_{\text{frame}}}
+$$
+
+If crown headroom drops below the upright threshold ($H_r > 0.235$) during an upright creator pose, a critical penalty caps the posture score:
+
+$$
+S_{\text{pose, final}} = \begin{cases}
+\min(S_{\text{pose}}, 65), & \text{if } H_r > 0.235 \text{ (slouch detected)} \\[6pt]
+S_{\text{pose}}, & \text{otherwise}
+\end{cases}
+$$
+
+This multi-objective constraint ensures that slouching immediately voids snapshot eligibility and instructs the user: *"Sit taller: spine slouched"*.
+
+---
 
 ### 4. Autonomous Auto-Shutter Hysteresis State Machine
+
 To guarantee hands-free studio capture without shutter jitter, the system maintains a temporal hysteresis buffer at 60 Hz:
-$$S_{t+1} = \begin{cases} S_t + \frac{\Delta t}{1.5}, & \text{if } S_{\text{framing}} \ge 70 \land S_{\text{pose}} \ge 75 \\ \max\left(0, S_t - \frac{\Delta t}{0.5}\right), & \text{otherwise} \end{cases}$$
+
+$$
+S_{t+1} = \begin{cases}
+S_t + \dfrac{\Delta t}{1.5}, & \text{if } S_{\text{framing}} \ge 70 \land S_{\text{pose}} \ge 75 \\[8pt]
+\max\left(0, S_t - \dfrac{\Delta t}{0.5}\right), & \text{otherwise}
+\end{cases}
+$$
+
 When $S_t \ge 1.0$ (1.5 continuous seconds of verified alignment), the state machine triggers:
 1. Visual white-out canvas flash animation (300ms ease-out)
 2. Procedural Web Audio camera shutter acoustic synthesis
 3. High-resolution canvas snapshot persisted to memory and filesystem via Electron IPC
 
-### 5. Adaptive Temporal Jitter Smoothing ($1€$ Filter)
-To eradicate webcam sensor jitter while preserving instantaneous response to deliberate user movement, landmark streams pass through a dual-cutoff $1€$ filter:
-$$\hat{x}_k = \alpha x_k + (1 - \alpha) \hat{x}_{k-1}, \quad \alpha = \frac{1}{1 + \frac{\tau}{T_e}}$$
+---
+
+### 5. Adaptive Temporal Jitter Smoothing (One Euro Filter / 1€)
+
+To eradicate webcam sensor jitter while preserving instantaneous response to deliberate user movement, landmark streams pass through a dual-cutoff One Euro (1€) filter:
+
+$$
+\hat{x}_k = \alpha x_k + (1 - \alpha)\hat{x}_{k-1}, \quad \alpha = \frac{1}{1 + \frac{\tau}{T_e}}
+$$
+
 The cutoff frequency dynamically scales with landmark velocity:
-$$f_c = f_{c,\min} + \beta |\dot{\hat{x}}_k|$$
-Configured with $f_{c,\min} = 1.0\text{ Hz}$ and speed coefficient $\beta = 0.007$, the system eliminates resting hand micro-tremors without adding latency during rapid movement.
+
+$$
+f_c = f_{c,\min} + \beta |\dot{\hat{x}}_k|
+$$
+
+Configured with minimum cutoff $f_{c,\min} = 1.0\text{ Hz}$ and speed coefficient $\beta = 0.007$, the system eliminates resting hand micro-tremors without adding latency during rapid movement.
 
 ---
 
