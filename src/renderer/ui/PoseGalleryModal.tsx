@@ -83,7 +83,7 @@ export const PoseGalleryModal: React.FC<PoseGalleryModalProps> = ({
         <div className="p-5 border-b border-[#F4F6F4]/10 flex items-center justify-between bg-[#0F251E]/60">
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold text-[#F4F6F4]">Pose & Reference Library</h2>
+              <h2 className="text-xl font-bold text-[#F4F6F4]">Pose Library</h2>
               <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#C5A059]/20 text-[#C5A059] border border-[#C5A059]/30">
                 {filteredPoses.length} Poses Available
               </span>
