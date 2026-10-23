@@ -1,6 +1,6 @@
 # Matching Algorithm Comparison Report: Angle & Feature Model vs. Baseline Euclidean Distance
 
-- **Date:** 2026-10-22T20:03:13.790Z
+- **Date:** 2026-10-23T16:51:18.264Z
 - **Evaluation Method:** [TEST] Automated Vitest comparative evaluation across synthetic perturbations and affine transforms.
 - **Reference Pose Set:** 5 Curated Seed Poses (`stand-naturally`, `hands-on-hips`, `arms-crossed`, `arms-raised-v`, `one-hand-wave`).
 

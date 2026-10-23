@@ -74,14 +74,24 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
               <div>
                 <h3 className="text-sm font-bold text-[#F4F6F4] mb-2 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#5EEAD4]" />
-                  How to Use KinoAssist Tele-Rehab
+                  How to Use DirectAI Pose Studio
                 </h3>
-                <ol className="list-decimal list-inside space-y-2 text-[#94A39E]">
-                  <li><strong className="text-[#F4F6F4]">Start Camera:</strong> Click "Start Camera & Assessment" or press <kbd className="px-1.5 py-0.5 rounded bg-[#0F251E] border border-[#F4F6F4]/20 text-[#F4F6F4] font-mono">Space</kbd> to activate your webcam.</li>
-                  <li><strong className="text-[#F4F6F4]">Choose Target Exercise:</strong> Pick a form from the Exercise Library (Lumbar Extension, Shoulder Abduction, Rotator Cuff ROM) or click "Auto-Detect & Suggest" to let AI find the closest match.</li>
-                  <li><strong className="text-[#F4F6F4]">Align with Guide Skeleton:</strong> Follow the Antique Brass guide skeleton displayed on your live video.</li>
-                  <li><strong className="text-[#F4F6F4]">Follow Biomechanical Feedback:</strong> Observe real-time Warm Amber arrows pointing to unaligned joints and follow concise joint angle cues (bend/straighten).</li>
-                  <li><strong className="text-[#F4F6F4]">Isometric Hold (1.5s):</strong> Once your posture similarity reaches &ge; 85%, hold steady for 1.5 seconds until the green verification banner completes.</li>
+                <ol className="list-decimal list-inside space-y-2.5 text-[#94A39E]">
+                  <li>
+                    <strong className="text-[#F4F6F4]">Start Camera Stream:</strong> Click "Start Camera & Guidance" or press <kbd className="px-1.5 py-0.5 rounded bg-[#0F251E] border border-[#F4F6F4]/20 text-[#F4F6F4] font-mono">Space</kbd> to activate your webcam with real-time on-device tracking.
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F6F4]">Choose or Auto-Recommend Poses:</strong> Browse 12,000+ reference photography poses in the Gallery (Solo, Couples, Trios, Groups) or click "Suggest Pose" to let AI analyze your live form and recommend the closest matches.
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F6F4]">Align with Guide Skeleton & Photo:</strong> Match your posture with the Antique Brass target skeleton overlaid on video and reference the large photo card in the side panel.
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F6F4]">Follow Real-Time Posture & Framing Cues:</strong> Observe Warm Amber directional arrows for joint adjustments and follow camera composition guidance (Rule-of-Thirds, headroom, centering).
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F6F4]">Hold Pose & Auto-Capture:</strong> When your match score reaches &ge; 85%, hold steady for 1.5 seconds to trigger automatic studio photo capture and save your snapshot.
+                  </li>
                 </ol>
               </div>
 
@@ -248,7 +258,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                   100% On-Device & Zero Video Storage
                 </h4>
                 <p className="text-[#F4F6F4]/90">
-                  KinoAssist operates with strict clinical privacy guarantees designed for sensitive camera environments:
+                  DirectAI Studio operates with strict zero-cloud privacy guarantees designed for sensitive camera environments:
                 </p>
                 <ul className="list-disc list-inside space-y-1 text-[#94A39E] pt-1">
                   <li>Zero frame saving: Video frames are processed in volatile memory only and discarded instantly.</li>

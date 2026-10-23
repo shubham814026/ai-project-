@@ -6,10 +6,17 @@
  * 2. Beginner difficulty first
  * 3. Closeness to the current pose
  * Shows clear, truthful reasons without claiming aesthetic taste.
+ *
+ * Enhanced with ML-driven Dual-Stage Retrieval across 12,001 reference poses:
+ * - Embedding neural prediction from current video frame
+ * - Biomechanical joint-angle alignment
+ * - Seed pose fallback
  */
 
 import { ReferencePose, NormalizedLandmark } from './types';
 import { PoseMatcher } from '../matching/poseMatcher';
+import { DatasetRecommender } from './datasetRecommender';
+import { SEED_POSES } from './seedPoses';
 
 export interface PoseRecommendation {
   pose: ReferencePose;
@@ -21,17 +28,50 @@ export interface PoseRecommendation {
 
 export class RecommendationEngine {
   private matcher: PoseMatcher = new PoseMatcher();
+  private datasetRecommender: DatasetRecommender = new DatasetRecommender();
+
+  constructor() {
+    // Proactively initialize dataset recommender asynchronously
+    this.datasetRecommender.initialize().catch((err) => {
+      console.warn('[RecommendationEngine] DatasetRecommender background init warning:', err);
+    });
+  }
+
+  public getDatasetRecommender(): DatasetRecommender {
+    return this.datasetRecommender;
+  }
 
   /**
-   * Evaluates current live video frame against the entire pose library
+   * Evaluates current live video frame against the reference pose library
    * and returns the top candidates matching what the user is doing right now.
    */
   public findBestMatchesFromFrame(
-    library: ReferencePose[],
+    library: ReferencePose[] = SEED_POSES,
     currentLandmarks: NormalizedLandmark[] | null,
     currentFraming: 'full-body' | 'upper-body' | 'partial' = 'upper-body',
-    topK: number = 4
+    topK: number = 4,
+    categoryFilter?: string,
+    personCount: number = 1
   ): PoseRecommendation[] {
+    // Try ML dataset recommendation first if dataset is ready
+    if (this.datasetRecommender.isReady()) {
+      try {
+        const candidates = this.datasetRecommender.predictBestPoses(
+          currentLandmarks,
+          currentFraming === 'partial' ? 'auto' : currentFraming,
+          categoryFilter,
+          topK,
+          personCount
+        );
+        if (candidates.length > 0) {
+          return this.datasetRecommender.toPoseRecommendations(candidates);
+        }
+      } catch (err) {
+        console.warn('[RecommendationEngine] Dataset prediction fallback to seed poses:', err);
+      }
+    }
+
+    // Fallback to feature-weighted matching on provided library (e.g. SEED_POSES)
     if (!currentLandmarks || currentLandmarks.length === 0) {
       return this.rankPoses(library, null, currentFraming).slice(0, topK);
     }

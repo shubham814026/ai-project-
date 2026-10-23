@@ -98,6 +98,8 @@ export const App: React.FC = () => {
   const [isPersonDetected, setIsPersonDetected] = useState<boolean>(false);
   const [isLowConfidence, setIsLowConfidence] = useState<boolean>(false);
   const [multiplePersons, setMultiplePersons] = useState<boolean>(false);
+  const [detectedPersonCount, setDetectedPersonCount] = useState<number>(1);
+  const detectedPersonCountRef = useRef<number>(1);
   const [isModelLoading, setIsModelLoading] = useState<boolean>(false);
   const [featureResults, setFeatureResults] = useState<FeatureMatchResult[]>([]);
   const [activeCorrections, setActiveCorrections] = useState<CorrectionInstruction[]>([]);
@@ -454,6 +456,9 @@ export const App: React.FC = () => {
               lastUiUpdateTimestamp.current = t0;
               overallScoreRef.current = matchRes.overallScore;
               setIsPersonDetected(true);
+              const pCount = det.allPersons.length || 1;
+              detectedPersonCountRef.current = pCount;
+              setDetectedPersonCount(pCount);
               setMultiplePersons(det.multiplePersonsDetected);
               setOverallScore(matchRes.overallScore);
               setCameraComposition(cameraComp);
@@ -471,12 +476,14 @@ export const App: React.FC = () => {
               const isCoreLowVis = coreLandmarks.some((l) => !l || l.visibility < 0.35);
               setIsLowConfidence(isCoreLowVis);
 
-              // Live posture matching: calculate closest pose from current live frame
+              // Live posture matching: calculate closest pose strictly matching detected person count
               const liveMatches = recommendationEngine.findBestMatchesFromFrame(
                 SEED_POSES,
                 smoothed,
                 currentSettings.framingMode,
-                3
+                3,
+                undefined,
+                pCount
               );
               setBestLiveMatch(liveMatches.length > 0 ? liveMatches[0] : null);
               setPerfStats(perfMonitor.getStats());
@@ -635,7 +642,15 @@ export const App: React.FC = () => {
   const handleSuggestPose = () => {
     const framing = settings.framingMode;
     const lms = renderStore.currentEasedLandmarks;
-    const recs = recommendationEngine.findBestMatchesFromFrame(SEED_POSES, lms, framing, 4);
+    const count = detectedPersonCountRef.current || 1;
+    const recs = recommendationEngine.findBestMatchesFromFrame(
+      SEED_POSES,
+      lms,
+      framing,
+      4,
+      undefined,
+      count
+    );
     setSuggestedPoses(recs);
     setIsSuggestModalOpen(true);
   };
@@ -813,6 +828,7 @@ export const App: React.FC = () => {
           currentPoseId={selectedPose?.id ?? null}
           onSelectPose={(p) => setSelectedPose(p)}
           onClose={() => setIsGalleryOpen(false)}
+          datasetLoader={recommendationEngine.getDatasetRecommender().getLoader()}
         />
       )}
 
@@ -820,6 +836,7 @@ export const App: React.FC = () => {
         isOpen={isSuggestModalOpen}
         onClose={() => setIsSuggestModalOpen(false)}
         recommendations={suggestedPoses}
+        personCount={detectedPersonCount}
         onSelectPose={(rec) => {
           setSelectedPose(rec.pose);
           setIsSuggestModalOpen(false);

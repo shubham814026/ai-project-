@@ -140,11 +140,26 @@ export const VideoContainer: React.FC<VideoContainerProps> = ({
 
           {/* Selected Pose Preview Card */}
           {selectedPose && (
-            <div className="p-3 bg-[#0F251E]/70 border border-[#F4F6F4]/10 rounded-2xl flex items-center gap-3 text-left">
-              <div
-                className="w-12 h-16 rounded-xl overflow-hidden shrink-0 border border-[#F4F6F4]/10 bg-[#16382D] flex items-center justify-center"
-                dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
-              />
+            <div className="p-3 bg-[#0F251E]/75 border border-[#F4F6F4]/10 rounded-2xl flex items-center gap-3 text-left shadow-lg">
+              <div className="relative w-14 h-18 rounded-xl overflow-hidden shrink-0 border border-[#C5A059]/30 bg-[#16382D] flex items-center justify-center">
+                {selectedPose.sourceImage ? (
+                  <img
+                    src={selectedPose.sourceImage}
+                    alt={selectedPose.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLElement).style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.start-svg-fallback');
+                      if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                <div
+                  className="start-svg-fallback w-full h-full flex items-center justify-center"
+                  style={{ display: selectedPose.sourceImage ? 'none' : 'flex' }}
+                  dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
+                />
+              </div>
               <div className="overflow-hidden flex-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#5EEAD4]">Target Pose</span>
                 <h4 className="text-sm font-bold text-[#F4F6F4] truncate">{selectedPose.name}</h4>

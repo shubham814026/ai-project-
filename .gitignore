@@ -69,4 +69,8 @@ ENV/
 
 # Private preparation guides & local docx generators
 docs/*.docx
-tools/*_docx.py
+assets.zip
+data/reference_dataset.json
+public/data/reference_dataset.json
+data/*.bin
+public/data/*.bin

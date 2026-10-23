@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReferencePose } from '../core/library/types';
 import { CorrectionInstruction } from '../core/guidance/correctionGenerator';
 import { PoseRecommendation } from '../core/library/recommendationEngine';
 import { CompositionResult } from '../core/camera/compositionAnalyzer';
-import { CheckCircle2, AlertCircle, Sparkles, ChevronRight, HelpCircle, Layers, Camera, Grid, Focus } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Sparkles, ChevronRight, HelpCircle, Layers, Camera, Grid, Focus, Maximize2, X } from 'lucide-react';
 
 interface GuidancePanelProps {
   selectedPose: ReferencePose | null;
@@ -42,6 +42,8 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
   onNextPose,
   onSelectPose,
 }) => {
+  const [isImageZoomed, setIsImageZoomed] = useState(false);
+
   return (
     <aside className="w-80 md:w-96 bg-[#16382D] border-l border-[#F4F6F4]/10 flex flex-col justify-between p-4 overflow-y-auto select-none">
       {/* Target Pose Card */}
@@ -57,19 +59,93 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
         </div>
 
         {selectedPose ? (
-          <>
-            <div className="p-3 bg-[#0F251E]/60 border border-[#F4F6F4]/10 rounded-xl flex gap-3 items-center">
+          <div className="space-y-3">
+            {/* Prominent Large Pose Photo Showcase */}
+            <div className="p-3 bg-[#0F251E]/75 border border-[#F4F6F4]/10 rounded-2xl space-y-3 shadow-lg">
               <div
-                className="w-16 h-20 rounded-lg overflow-hidden shrink-0 border border-[#F4F6F4]/10 bg-[#16382D]"
-                dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
-              />
-              <div className="overflow-hidden">
-                <h3 className="text-sm font-semibold text-[#F4F6F4] truncate">{selectedPose.name}</h3>
-                <p className="text-xs text-[#94A39E] capitalize">{selectedPose.category} • {selectedPose.difficulty}</p>
-                <p className="text-[11px] text-[#94A39E]/80 line-clamp-2 mt-1">{selectedPose.description}</p>
+                onClick={() => setIsImageZoomed(true)}
+                className="group relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-[#16382D] border-2 border-[#C5A059]/40 cursor-pointer shadow-md"
+                title="Click to view full-size photo"
+              >
+                {selectedPose.sourceImage ? (
+                  <img
+                    src={selectedPose.sourceImage}
+                    alt={selectedPose.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLElement).style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.panel-svg-fallback');
+                      if (fallback) (fallback as HTMLElement).style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+
+                {/* SVG Fallback if image fails or missing */}
+                <div
+                  className="panel-svg-fallback w-full h-full flex flex-col items-center justify-center p-4 text-center bg-[#16382D]"
+                  style={{ display: selectedPose.sourceImage ? 'none' : 'flex' }}
+                >
+                  <div
+                    className="w-24 h-24 mb-2 flex items-center justify-center"
+                    dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
+                  />
+                  <span className="text-xs text-[#94A39E] font-medium">Reference Skeleton</span>
+                </div>
+
+                {/* Top Badges Overlaid on Photo */}
+                <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 z-10 pointer-events-none">
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#0F251E]/85 backdrop-blur-md text-[#C5A059] border border-[#C5A059]/30 shadow">
+                    {selectedPose.category}
+                  </span>
+                </div>
+
+                {/* Enlarge / Zoom Button */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsImageZoomed(true);
+                  }}
+                  title="Enlarge reference photo"
+                  className="absolute top-2.5 right-2.5 p-1.5 rounded-lg bg-[#0F251E]/85 backdrop-blur-md text-[#F4F6F4] hover:text-[#C5A059] hover:bg-[#0F251E] border border-[#F4F6F4]/10 transition z-10 shadow"
+                >
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </button>
+
+                {/* Bottom Gradient Overlay on Photo */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#0F251E] via-[#0F251E]/70 to-transparent p-3 pt-8 flex items-center justify-between text-[11px] pointer-events-none">
+                  <span className="font-semibold text-[#F4F6F4] capitalize flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#4ADE80]" />
+                    {selectedPose.framing} framing
+                  </span>
+                  <span className="font-bold text-[#C5A059] uppercase text-[10px] tracking-wide px-2 py-0.5 rounded-full bg-[#C5A059]/15 border border-[#C5A059]/30">
+                    {selectedPose.difficulty}
+                  </span>
+                </div>
+              </div>
+
+              {/* Title & Description */}
+              <div className="space-y-1">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="text-sm font-bold text-[#F4F6F4] leading-snug">
+                    {selectedPose.name}
+                  </h3>
+                  <button
+                    onClick={onOpenGallery}
+                    className="text-[11px] font-semibold text-[#C5A059] hover:text-[#D4B473] shrink-0 transition flex items-center gap-0.5"
+                  >
+                    Change <ChevronRight className="w-3 h-3" />
+                  </button>
+                </div>
+                {selectedPose.description && (
+                  <p className="text-[11px] text-[#94A39E] leading-relaxed line-clamp-2">
+                    {selectedPose.description}
+                  </p>
+                )}
               </div>
             </div>
 
+            {/* Key Posture Points */}
             {selectedPose.instructions && selectedPose.instructions.length > 0 && (
               <div className="p-2.5 bg-[#0F251E]/40 border border-[#F4F6F4]/5 rounded-xl space-y-1">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#94A39E] block">Key Posture Points</span>
@@ -83,7 +159,7 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
                 </ul>
               </div>
             )}
-          </>
+          </div>
         ) : (
           <div className="p-6 bg-[#0F251E]/60 border border-dashed border-[#F4F6F4]/15 rounded-xl text-center">
             <Layers className="w-8 h-8 text-[#94A39E] mx-auto mb-2" />
@@ -94,6 +170,68 @@ export const GuidancePanel: React.FC<GuidancePanelProps> = ({
             >
               Pick a Pose
             </button>
+          </div>
+        )}
+
+        {/* High-Resolution Zoom Lightbox Modal */}
+        {isImageZoomed && selectedPose && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+            onClick={() => setIsImageZoomed(false)}
+          >
+            <div
+              className="relative max-w-xl w-full bg-[#0F251E] border-2 border-[#C5A059]/50 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Lightbox Header */}
+              <div className="p-3.5 border-b border-[#F4F6F4]/10 flex items-center justify-between bg-[#16382D]/80">
+                <div>
+                  <h3 className="text-sm font-bold text-[#F4F6F4] truncate">{selectedPose.name}</h3>
+                  <p className="text-xs text-[#94A39E] capitalize">
+                    {selectedPose.category} • {selectedPose.framing} • {selectedPose.difficulty}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setIsImageZoomed(false)}
+                  className="p-1.5 rounded-lg bg-[#0F251E] text-[#94A39E] hover:text-[#F4F6F4] border border-[#F4F6F4]/10 transition"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Lightbox Photo Preview */}
+              <div className="relative flex-1 min-h-[350px] max-h-[65vh] bg-[#07130F] flex items-center justify-center overflow-hidden p-2">
+                {selectedPose.sourceImage ? (
+                  <img
+                    src={selectedPose.sourceImage}
+                    alt={selectedPose.name}
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                ) : (
+                  <div
+                    className="w-48 h-48"
+                    dangerouslySetInnerHTML={{ __html: selectedPose.thumbnail }}
+                  />
+                )}
+              </div>
+
+              {/* Lightbox Guidance Footer */}
+              {selectedPose.instructions && selectedPose.instructions.length > 0 && (
+                <div className="p-3 bg-[#16382D]/90 border-t border-[#F4F6F4]/10">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#C5A059] block mb-1">
+                    Key Posture Alignment Tips
+                  </span>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[11px] text-[#94A39E]">
+                    {selectedPose.instructions.map((inst, i) => (
+                      <li key={i} className="flex items-start gap-1.5 leading-tight">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mt-1 shrink-0" />
+                        <span>{inst}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         )}
 
