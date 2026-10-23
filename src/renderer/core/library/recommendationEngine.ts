@@ -63,8 +63,11 @@ export class RecommendationEngine {
           topK,
           personCount
         );
-        if (candidates.length > 0) {
-          return this.datasetRecommender.toPoseRecommendations(candidates);
+        const validCandidates = candidates.filter(
+          (c) => c.referencePose && c.referencePose.landmarks && c.referencePose.landmarks.length >= 33 && c.referencePose.features && c.referencePose.features.length > 1
+        );
+        if (validCandidates.length > 0) {
+          return this.datasetRecommender.toPoseRecommendations(validCandidates);
         }
       } catch (err) {
         console.warn('[RecommendationEngine] Dataset prediction fallback to seed poses:', err);

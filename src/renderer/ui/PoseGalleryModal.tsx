@@ -23,25 +23,44 @@ export const PoseGalleryModal: React.FC<PoseGalleryModalProps> = ({
   const [difficultyFilter, setDifficultyFilter] = useState<'all' | 'beginner' | 'intermediate' | 'advanced'>('all');
   const [personCountFilter, setPersonCountFilter] = useState<'all' | 'solo' | 'duo' | 'trio' | 'group'>('all');
   const [allPoses, setAllPoses] = useState<ReferencePose[]>(SEED_POSES);
-  const [categories, setCategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>(() =>
+    Array.from(new Set(SEED_POSES.map((p) => p.category))).sort()
+  );
   const [visibleCount, setVisibleCount] = useState<number>(48);
 
-  // Load dataset poses asynchronously if loader provided
+  // Load dataset poses asynchronously if loader provided, but strictly filter for verified poses with complete landmarks & features
   useEffect(() => {
     if (!datasetLoader) return;
 
-    if (datasetLoader.isDatasetLoaded()) {
+    const processEntries = () => {
       const datasetEntries = datasetLoader.getAllPoses();
-      const mapped = datasetEntries.slice(0, 1000).map((d) => datasetLoader.toReferencePose(d));
-      setAllPoses([...SEED_POSES, ...mapped]);
-      setCategories(datasetLoader.getCategories());
+      const validMapped = datasetEntries
+        .map((d) => datasetLoader.toReferencePose(d))
+        .filter(
+          (p) =>
+            p.landmarks &&
+            p.landmarks.length >= 33 &&
+            p.features &&
+            p.features.length > 1 &&
+            (p.thumbnail || p.sourceImage)
+        );
+
+      if (validMapped.length > 0) {
+        const combined = [...SEED_POSES, ...validMapped];
+        setAllPoses(combined);
+        setCategories(Array.from(new Set(combined.map((p) => p.category))).sort());
+      } else {
+        setAllPoses(SEED_POSES);
+        setCategories(Array.from(new Set(SEED_POSES.map((p) => p.category))).sort());
+      }
+    };
+
+    if (datasetLoader.isDatasetLoaded()) {
+      processEntries();
     } else {
       datasetLoader.loadDataset().then((ok) => {
         if (ok) {
-          const datasetEntries = datasetLoader.getAllPoses();
-          const mapped = datasetEntries.slice(0, 1000).map((d) => datasetLoader.toReferencePose(d));
-          setAllPoses([...SEED_POSES, ...mapped]);
-          setCategories(datasetLoader.getCategories());
+          processEntries();
         }
       });
     }
